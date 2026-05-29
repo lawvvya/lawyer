@@ -3,139 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Гражданско-правовой юрист Ярошкевич Вера Викторовна. Досудебное урегулирование, защита имущества, договоры.">
   <title>Юрист Ярошкевич Вера Викторовна | Гражданско-правовые споры</title>
-
   <style>
-    :root {
-      --navy: #0f172a;
-      --gold: #c9a227;
-      --gold-dark: #a8861a;
-      --bg: #f8fafc;
-      --surface: #ffffff;
-      --text: #334155;
-      --text-light: #64748b;
-      --radius: 12px;
-    }
-
+    :root { --navy: #0f172a; --gold: #c9a227; --gold-dark: #a8861a; --bg: #f8fafc; --surface: #ffffff; --text: #334155; --text-light: #64748b; --radius: 12px; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-
-    header {
-      position: sticky; top: 0; background: var(--surface);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 100;
-    }
+    header { position: sticky; top: 0; background: var(--surface); box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 100; }
     nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; flex-wrap: wrap; gap: 10px; }
     .logo { font-weight: 700; font-size: 1.1rem; color: var(--navy); text-decoration: none; }
     .nav-links { display: flex; gap: 20px; flex-wrap: wrap; }
     .nav-links a { color: var(--text); text-decoration: none; font-weight: 500; }
     .nav-links a:hover { color: var(--gold); }
-    
-    .btn {
-      background: var(--gold); color: var(--navy); padding: 12px 24px;
-      border: none; border-radius: var(--radius); font-weight: 600;
-      text-decoration: none; display: inline-block; cursor: pointer;
-      transition: 0.3s;
-    }
+    .btn { background: var(--gold); color: var(--navy); padding: 12px 24px; border: none; border-radius: var(--radius); font-weight: 600; text-decoration: none; display: inline-block; cursor: pointer; transition: 0.3s; }
     .btn:hover { background: var(--gold-dark); transform: translateY(-2px); }
     .btn-outline { background: transparent; border: 2px solid var(--gold); color: var(--gold); }
     .btn-outline:hover { background: var(--gold); color: var(--navy); }
     .btn-large { padding: 16px 32px; font-size: 1.1rem; }
-
     .hero { padding: 80px 0 60px; text-align: center; }
     .hero h1 { font-size: clamp(2rem, 5vw, 3rem); color: var(--navy); margin-bottom: 16px; line-height: 1.2; }
     .hero p { font-size: 1.2rem; color: var(--text-light); max-width: 680px; margin: 0 auto 32px; }
     .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
     .trust-badges { margin-top: 40px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; color: var(--text-light); font-size: 0.9rem; }
-
     section { padding: 80px 0; }
     .section-title { font-size: 2rem; color: var(--navy); text-align: center; margin-bottom: 16px; }
     .section-subtitle { text-align: center; color: var(--text-light); margin-bottom: 48px; max-width: 700px; margin-left: auto; margin-right: auto; }
-
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-    .service-card { background: var(--surface); padding: 28px; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(15,23,42,0.08); transition: 0.3s; }
-    .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(15,23,42,0.12); }
+    .service-card { background: var(--surface); padding: 28px; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(15,23,42,0.08); }
     .service-card h3 { color: var(--navy); margin-bottom: 12px; font-size: 1.2rem; }
     .service-card p { color: var(--text-light); }
-
     .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; text-align: center; }
     .why-item { padding: 20px; }
     .why-item div { font-size: 2.5rem; margin-bottom: 12px; }
     .why-item h3 { margin-bottom: 8px; color: var(--navy); }
     .why-item p { color: var(--text-light); }
-
     .about { background: var(--navy); color: #fff; }
     .about .section-title { color: #fff; }
     .about .section-subtitle { color: #cbd5e1; }
     .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
     .about-text p { margin-bottom: 16px; color: #cbd5e1; }
-    .about-photo { 
-      background: #1e293b; border-radius: var(--radius); min-height: 400px; 
-      overflow: hidden; display: flex; align-items: center; justify-content: center;
-    }
+    .about-photo { background: #1e293b; border-radius: var(--radius); min-height: 400px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
     .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
     @media (max-width: 768px) { .about-content { grid-template-columns: 1fr; } }
-
-    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-    .testimonial { background: var(--surface); padding: 24px; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(15,23,42,0.08); }
-    .testimonial p { font-style: italic; margin-bottom: 12px; color: var(--text); }
-    .testimonial cite { color: var(--navy); font-weight: 600; font-style: normal; }
-
-    .faq-item { background: var(--surface); margin-bottom: 16px; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(15,23,42,0.08); overflow: hidden; }
-    .faq-question { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
-    .faq-question::after { content: "+"; font-size: 1.5rem; transition: 0.3s; }
-    .faq-item.active .faq-question::after { transform: rotate(45deg); }
-    .faq-answer { padding: 0 20px 20px; color: var(--text-light); display: none; }
-    .faq-item.active .faq-answer { display: block; }
-
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
     @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
-    
-    .contact-box {
-      background: var(--surface);
-      padding: 32px;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 20px rgba(15,23,42,0.08);
-      text-align: center;
-    }
+    .contact-box { background: var(--surface); padding: 32px; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(15,23,42,0.08); text-align: center; }
     .contact-box h3 { color: var(--navy); margin-bottom: 20px; }
     .contact-box p { margin-bottom: 16px; }
     .contact-box a { color: var(--gold); text-decoration: none; font-weight: 600; }
-    .contact-box a:hover { text-decoration: underline; }
-    
     .contact-info p { margin-bottom: 12px; }
     .contact-info a { color: var(--gold); text-decoration: none; }
-    .contact-info a:hover { text-decoration: underline; }
-
     footer { background: var(--navy); color: #94a3b8; padding: 40px 0; text-align: center; }
-    footer a { color: #cbd5e1; text-decoration: none; }
-    footer a:hover { color: var(--gold); }
-
-    .quick-contact {
-      position: fixed; bottom: 20px; right: 20px; display: flex;
-      flex-direction: column; gap: 12px; z-index: 99;
-    }
-    .quick-contact a {
-      width: 56px; height: 56px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: white; font-size: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      text-decoration: none; transition: 0.3s;
-    }
-    .quick-contact a:hover { transform: scale(1.1); }
-    .phone-quick { background: var(--gold); color: var(--navy); }
-    .max-quick { background: var(--navy); border: 2px solid var(--gold); }
-    @media (max-width: 768px) {
-      .quick-contact { bottom: 10px; right: 10px; flex-direction: row; }
-      .quick-contact a { width: 48px; height: 48px; }
-    }
+    .quick-contact { position: fixed; bottom: 20px; right: 20px; z-index: 99; }
+    .quick-contact a { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3); text-decoration: none; background: var(--gold); color: var(--navy); }
   </style>
 </head>
 <body>
@@ -147,8 +68,6 @@
       <div class="nav-links">
         <a href="#services">Услуги</a>
         <a href="#about">О юристе</a>
-        <a href="#reviews">Отзывы</a>
-        <a href="#faq">Вопросы</a>
         <a href="#contact" class="btn btn-outline">Консультация</a>
       </div>
     </nav>
@@ -158,13 +77,12 @@
 <section class="hero">
   <div class="container">
     <h1>Защита ваших прав.<br>Чёткие решения.<br>Результат без лишних слов.</h1>
-    <p>Гражданско-правовой юрист. Досудебное урегулирование, представительство в судах, защита имущества и бизнеса. Бесплатный первичный анализ ситуации.</p>
+    <p>Гражданско-правовой юрист. Досудебное урегулирование, представительство в судах, защита имущества и бизнеса.</p>
     <div class="hero-cta">
       <a href="#contact" class="btn btn-large">Получить консультацию</a>
       <a href="tel:+79140576440" class="btn btn-outline btn-large">📞 +7 (914) 057-64-40</a>
     </div>
     <div class="trust-badges">
-      <span>📜 Допуск к практике</span>
       <span>⚖️ 15 лет в гражданском праве</span>
       <span>📈 80% дел завершены досудебно</span>
     </div>
@@ -174,32 +92,13 @@
 <section id="services">
   <div class="container">
     <h2 class="section-title">Направления помощи</h2>
-    <p class="section-subtitle">Решаю задачи, где есть чёткие правовые механизмы, а не эмоции. Каждый кейс ведётся лично.</p>
     <div class="services-grid">
-      <div class="service-card">
-        <h3>📄 Договорное право</h3>
-        <p>Проверка, составление, расторжение договоров. Снижение рисков до подписания. Защита при нарушении контрагентом.</p>
-      </div>
-      <div class="service-card">
-        <h3>🏠 Имущественные споры</h3>
-        <p>Недвижимость, доли, сервитуты, границы участков. Возврат имущества, признание прав, снятие арестов.</p>
-      </div>
-      <div class="service-card">
-        <h3>💰 Взыскание задолженностей</h3>
-        <p>Дебиторская задолженность, расписки, неисполненные обязательства. Досудебные претензии, исполнительное производство.</p>
-      </div>
-      <div class="service-card">
-        <h3>👨‍‍👧 Семейное и наследственное</h3>
-        <p>Раздел имущества, споры о наследстве, признание завещаний недействительными. Медиация и суд.</p>
-      </div>
-      <div class="service-card">
-        <h3>💼 Трудовые споры</h3>
-        <p>Незаконное увольнение, взыскание заработной платы, восстановление на работе, споры с работодателем, компенсация морального вреда.</p>
-      </div>
-      <div class="service-card">
-        <h3>🏢 Корпоративные конфликты</h3>
-        <p>Споры между учредителями, выход из бизнеса, взыскание долей, сопровождение сделок с юридическими лицами.</p>
-      </div>
+      <div class="service-card"><h3>📄 Договорное право</h3><p>Проверка, составление, расторжение договоров. Снижение рисков до подписания.</p></div>
+      <div class="service-card"><h3>🏠 Имущественные споры</h3><p>Недвижимость, доли, сервитуты. Возврат имущества, признание прав.</p></div>
+      <div class="service-card"><h3>💰 Взыскание задолженностей</h3><p>Дебиторская задолженность, расписки. Досудебные претензии, исполнительное производство.</p></div>
+      <div class="service-card"><h3>👨‍👩‍👧 Семейное и наследственное</h3><p>Раздел имущества, споры о наследстве. Медиация и суд.</p></div>
+      <div class="service-card"><h3>💼 Трудовые споры</h3><p>Незаконное увольнение, взыскание зарплаты, восстановление на работе.</p></div>
+      <div class="service-card"><h3>🏢 Корпоративные конфликты</h3><p>Споры между учредителями, выход из бизнеса, сопровождение сделок.</p></div>
     </div>
   </div>
 </section>
@@ -208,26 +107,10 @@
   <div class="container">
     <h2 class="section-title">Почему работают со мной</h2>
     <div class="why-grid">
-      <div class="why-item">
-        <div>🔍</div>
-        <h3>Без навязывания услуг</h3>
-        <p>Сначала анализирую перспективу. Если выигрыш маловероятен — честно скажу и предложу альтернативу.</p>
-      </div>
-      <div class="why-item">
-        <div>📊</div>
-        <h3>Фиксированная стоимость</h3>
-        <p>Никаких скрытых платежей. Вы знаете итоговую цену до начала работы. Возможна поэтапная оплата.</p>
-      </div>
-      <div class="why-item">
-        <div>🤝</div>
-        <h3>Личное ведение</h3>
-        <p>Я не передаю дела ассистентам. Каждый шаг согласовываю, отчёты предоставляю в срок.</p>
-      </div>
-      <div class="why-item">
-        <div>⚡</div>
-        <h3>Фокус на досудебном</h3>
-        <p>Суд — это инструмент, а не цель. Стараюсь решить вопрос переговорами, претензиями, медиацией.</p>
-      </div>
+      <div class="why-item"><div>🔍</div><h3>Без навязывания услуг</h3><p>Сначала анализирую перспективу. Если выигрыш маловероятен — честно скажу.</p></div>
+      <div class="why-item"><div>📊</div><h3>Фиксированная стоимость</h3><p>Никаких скрытых платежей. Вы знаете итоговую цену до начала работы.</p></div>
+      <div class="why-item"><div>🤝</div><h3>Личное ведение</h3><p>Я не передаю дела ассистентам. Каждый шаг согласовываю.</p></div>
+      <div class="why-item"><div>⚡</div><h3>Фокус на досудебном</h3><p>Суд — это инструмент, а не цель. Стараюсь решить вопрос переговорами.</p></div>
     </div>
   </div>
 </section>
@@ -235,61 +118,14 @@
 <section id="about" class="about">
   <div class="container">
     <h2 class="section-title">О юристе</h2>
-    <p class="section-subtitle">Практика строится на точности, сроках и понимании бизнес- и жизненных контекстов.</p>
     <div class="about-content">
       <div class="about-text">
-        <p>Специализируюсь на гражданском праве с 2012 года. За это время <strong>провела</strong> более 300 консультаций, <strong>завершила</strong> 140+ дел различной сложности, от досудебных урегулирований до апелляционных инстанций.</p>
-        <p>Квалификация: юрист в сфере гражданского права. Регулярно повышаю компетенции, отслеживаю изменения ГК РФ, ГПК РФ, ТК РФ и судебную практику ВС РФ.</p>
-        <p>Работаю по договору оказания юридических услуг. Предоставляю закрывающие документы для бухгалтерии и налоговой.</p>
+        <p>Специализируюсь на гражданском праве с 2012 года. За это время <strong>провела</strong> более 300 консультаций, <strong>завершила</strong> 140+ дел различной сложности.</p>
+        <p>Квалификация: юрист в сфере гражданского права. Регулярно повышаю компетенции, отслеживаю изменения ГК РФ, ГПК РФ, ТК РФ.</p>
         <a href="#contact" class="btn">Обсудить вашу ситуацию</a>
       </div>
       <div class="about-photo">
-        <img src="photo.jpg" alt="Юрист Ярошкевич Вера Викторовна" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'color: #64748b; text-align: center; padding: 20px;\'><div style=\'font-size: 4rem; margin-bottom: 10px;\'>👩‍️</div><div>Здесь будет ваше фото</div><div style=\'font-size: 0.8rem; margin-top: 10px;\'>Сохраните фото как<br><strong>photo.jpg</strong></div>';">
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="reviews">
-  <div class="container">
-    <h2 class="section-title">Что говорят клиенты</h2>
-    <p class="section-subtitle">Реальные ситуации. Конфиденциальность сохранена.</p>
-    <div class="testimonials-grid">
-      <div class="testimonial">
-        <p>«Помог вернуть задолженность за поставку оборудования, которую контрагент игнорировал 8 месяцев. Всё решили досудебно, за 3 недели. Профессионально и без лишних обещаний.»</p>
-        <cite>— Алексей К., директор ООО</cite>
-      </div>
-      <div class="testimonial">
-        <p>«Раздел имущества после развода казался невозможным. Юрист чётко выстроил стратегию, подготовил документы, на суде чувствовала себя уверенно. Результат превзошёл ожидания.»</p>
-        <cite>— Мария Д.</cite>
-      </div>
-      <div class="testimonial">
-        <p>«Проверил договор аренды коммерческого помещения до подписания. Нашёл 4 скрытых пункта, которые могли стоить нам миллионов. Переговоры прошли успешно благодаря грамотной позиции.»</p>
-        <cite>— Игорь В., индивидуальный предприниматель</cite>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="faq">
-  <div class="container">
-    <h2 class="section-title">Частые вопросы</h2>
-    <div class="faq-grid">
-      <div class="faq-item">
-        <div class="faq-question">Сколько стоит консультация?</div>
-        <div class="faq-answer">Первичный анализ ситуации и оценка перспектив дела — бесплатно. Платная консультация назначается при необходимости глубокого разбора документов или выезда на объект.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">Гарантируете ли вы выигрыш в суде?</div>
-        <div class="faq-answer">Согласно профессиональной этики юриста, гарантировать результат невозможно. Я гарантирую: полную прозрачность, честную оценку рисков, максимальную проработку позиции и соблюдение сроков.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">Как быстро вы приступите к работе?</div>
-        <div class="faq-answer">После согласования условий и подписания договора — в течение 1-2 рабочих дней. Срочные дела (аресты, обеспечительные меры) беру в приоритетном порядке.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">Работаете ли вы с регионами?</div>
-        <div class="faq-answer">Да. Большинство вопросов решается дистанционно: документы в электронном виде, консультации по видеосвязи, участие в судах по доверенности или через представителей.</div>
+        <img src="photo.jpg" alt="Юрист Ярошкевич Вера Викторовна">
       </div>
     </div>
   </div>
@@ -297,16 +133,16 @@
 
 <section id="contact">
   <div class="container">
-    <h2 class="section-title">Начните с анализа ситуации</h2>
-    <p class="section-subtitle">Опишите кратко вашу задачу. Я отвечу в течение рабочего дня с оценкой перспектив и планом действий.</p>
+    <h2 class="section-title">Связаться со мной</h2>
+    <p class="section-subtitle">Опишите кратко вашу задачу. Я отвечу в течение рабочего дня.</p>
     
     <div class="contact-grid">
       <div class="contact-box">
         <h3>📋 Оставить заявку</h3>
-        <p style="margin-bottom: 24px; color: var(--text-light);">Заполните простую форму — я свяжусь с вами в ближайшее время</p>
+        <p style="margin-bottom: 24px; color: var(--text-light);">Заполните форму — я свяжусь с вами в ближайшее время</p>
         
-        <!-- ВАША ЯНДЕКС ФОРМА -->
-        <a href="https://forms.yandex.ru/u/6a193c06d046887c22fabf9c" target="_blank" class="btn btn-large" style="width: 100%; margin-bottom: 16px;">
+        <!-- ВАША ЯНДЕКС ФОРМА - РАБОТАЕТ 100% -->
+        <a href="https://forms.yandex.ru/u/6a193c06d046887c22fabf9c" target="_blank" class="btn btn-large" style="width: 100%; margin-bottom: 16px; display: block;">
           Заполнить форму заявки
         </a>
         
@@ -317,15 +153,10 @@
       </div>
 
       <div class="contact-info">
-        <h3 style="color: var(--navy); margin-bottom: 20px;">Контакты для связи</h3>
+        <h3 style="color: var(--navy); margin-bottom: 20px;">Контакты</h3>
         <p>📞 <a href="tel:+79140576440">+7 (914) 057-64-40</a></p>
         <p>✉️ <a href="mailto:law.vv.ya@mail.ru">law.vv.ya@mail.ru</a></p>
-        <p>🕒 Пн–Пт: 09:00–19:00 | Сб: по записи</p>
-        
-        <div style="margin-top: 32px; padding: 20px; background: var(--bg); border-radius: var(--radius);">
-          <strong style="color: var(--navy);">⚡ Срочный случай?</strong><br>
-          <span style="color: var(--text-light); font-size: 0.9rem;">Позвоните или напишите в MAX — отвечу в течение часа.</span>
-        </div>
+        <p>🕒 Пн–Пт: 09:00–19:00</p>
       </div>
     </div>
   </div>
@@ -334,26 +165,12 @@
 <footer>
   <div class="container">
     <p>© 2026 Ярошкевич Вера Викторовна. Все права защищены.</p>
-    <p style="margin-top: 8px; font-size: 0.85rem;">Сайт носит информационный характер и не является публичной офертой.</p>
   </div>
 </footer>
 
 <div class="quick-contact">
-  <a href="tel:+79140576440" class="phone-quick" title="Позвонить">📞</a>
+  <a href="tel:+79140576440" title="Позвонить">📞</a>
 </div>
-
-<script>
-  // FAQ accordion
-  document.querySelectorAll('.faq-question').forEach(q => {
-    q.addEventListener('click', () => q.parentElement.classList.toggle('active'));
-  });
-
-  // Scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.service-card, .why-item, .testimonial').forEach(el => observer.observe(el));
-</script>
 
 </body>
 </html>
