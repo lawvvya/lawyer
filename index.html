@@ -9,7 +9,6 @@
   <meta property="og:type" content="website">
   <title>Юрист Ярошкевич Вера Викторовна | Гражданско-правовые споры</title>
 
-  <!-- Schema.org для SEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -224,9 +223,6 @@
     .fade-in.visible { opacity: 1; transform: translateY(0); }
     @media (prefers-reduced-motion: reduce) { .fade-in { transition: none; opacity: 1; transform: none; } }
 
-    /* Form honeypot */
-    .hidden-field { display: none; }
-    
     /* Quick contact bar */
     .quick-contact {
       position: fixed;
@@ -290,7 +286,7 @@
     </div>
     <div class="trust-badges">
       <span class="badge"> Допуск к практике</span>
-      <span class="badge">⚖️ 15 лет в гражданском праве</span>
+      <span class="badge">️ 15 лет в гражданском праве</span>
       <span class="badge">📈 80% дел завершены досудебно</span>
     </div>
   </div>
@@ -317,7 +313,7 @@
         <a href="#contact" class="service-link">Начать взыскание →</a>
       </div>
       <div class="service-card fade-in">
-        <h3>👨‍‍👧 Семейное и наследственное</h3>
+        <h3>👨‍👩‍👧 Семейное и наследственное</h3>
         <p>Раздел имущества, споры о наследстве, признание завещаний недействительными. Медиация и суд.</p>
         <a href="#contact" class="service-link">Получить стратегию →</a>
       </div>
@@ -345,7 +341,7 @@
         <p>Сначала анализирую перспективу. Если выигрыш маловероятен — честно скажу и предложу альтернативу.</p>
       </div>
       <div class="why-item fade-in">
-        <div></div>
+        <div>📊</div>
         <h3>Фиксированная стоимость</h3>
         <p>Никаких скрытых платежей. Вы знаете итоговую цену до начала работы. Возможна поэтапная оплата.</p>
       </div>
@@ -375,7 +371,6 @@
         <a href="#contact" class="btn">Обсудить вашу ситуацию</a>
       </div>
       <div class="about-photo">
-        <!-- ВАЖНО: Файл с фото должен называться photo.jpg -->
         <img src="photo.jpg" alt="Юрист Ярошкевич Вера Викторовна" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'photo-placeholder\'><div style=\'font-size: 4rem; margin-bottom: 10px;\'>👩‍️</div><div>Здесь будет ваше фото</div><div style=\'font-size: 0.8rem; margin-top: 10px;\'>Сохраните фото как<br><strong>photo.jpg</strong></div>';">
       </div>
     </div>
@@ -432,9 +427,13 @@
     <h2 class="section-title">Начните с анализа ситуации</h2>
     <p class="section-subtitle">Опишите кратко вашу задачу. Я отвечу в течение рабочего дня с оценкой перспектив и планом действий.</p>
     <div class="contact-grid">
-      <!-- ФОРМА НАСТРОЕНА ДЛЯ NETLIFY -->
-      <form name="contact" method="POST" data-netlify="true" class="contact-form">
-        <input type="hidden" name="form-name" value="contact">
+      
+      <!-- ФОРМА ЧЕРЕЗ FORMSUBMIT.CO -->
+      <form class="contact-form" action="https://formsubmit.co/law.vv.ya@mail.ru" method="POST">
+        <input type="hidden" name="_subject" value="Новая заявка с сайта юриста">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        
         <input type="text" name="name" placeholder="Ваше имя" required>
         <input type="tel" name="phone" placeholder="Ваш телефон" required>
         <select name="case" required>
@@ -448,8 +447,6 @@
           <option value="other">Другое</option>
         </select>
         <textarea name="message" rows="4" placeholder="Кратко опишите ситуацию (можно без деталей)"></textarea>
-        <!-- Защита от спама для Netlify -->
-        <input type="text" name="bot-field" class="hidden-field" tabindex="-1" autocomplete="off">
         <button type="submit" class="btn" style="width:100%">Отправить запрос</button>
         <p style="font-size:0.8rem; color:var(--text-light); margin-top:12px">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных. Я не передаю информацию третьим лицам.</p>
       </form>
