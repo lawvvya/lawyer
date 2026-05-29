@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Гражданско-правовой юрист Ярошкевич Вера Викторовна. Досудебное урегулирование, защита имущества, договоры.">
   <title>Юрист Ярошкевич Вера Викторовна | Гражданско-правовые споры</title>
   <style>
     :root { --navy: #0f172a; --gold: #c9a227; --gold-dark: #a8861a; --bg: #f8fafc; --surface: #ffffff; --text: #334155; --text-light: #64748b; --radius: 12px; }
@@ -50,13 +51,17 @@
     @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
     .contact-box { background: var(--surface); padding: 32px; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(15,23,42,0.08); text-align: center; }
     .contact-box h3 { color: var(--navy); margin-bottom: 20px; }
-    .contact-box p { margin-bottom: 16px; }
-    .contact-box a { color: var(--gold); text-decoration: none; font-weight: 600; }
-    .contact-info p { margin-bottom: 12px; }
-    .contact-info a { color: var(--gold); text-decoration: none; }
+    .contact-box p { margin-bottom: 16px; font-size: 1.1rem; }
+    .contact-box a { color: var(--gold); text-decoration: none; font-weight: 600; font-size: 1.2rem; }
+    .contact-box a:hover { text-decoration: underline; }
+    .contact-info p { margin-bottom: 16px; font-size: 1.1rem; }
+    .contact-info a { color: var(--gold); text-decoration: none; font-weight: 500; }
+    .contact-info a:hover { text-decoration: underline; }
     footer { background: var(--navy); color: #94a3b8; padding: 40px 0; text-align: center; }
     .quick-contact { position: fixed; bottom: 20px; right: 20px; z-index: 99; }
-    .quick-contact a { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3); text-decoration: none; background: var(--gold); color: var(--navy); }
+    .quick-contact a { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--navy); font-size: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3); text-decoration: none; background: var(--gold); }
+    .quick-contact a:hover { transform: scale(1.1); }
+    @media (max-width: 768px) { .quick-contact { bottom: 10px; right: 10px; } }
   </style>
 </head>
 <body>
@@ -68,7 +73,7 @@
       <div class="nav-links">
         <a href="#services">Услуги</a>
         <a href="#about">О юристе</a>
-        <a href="#contact" class="btn btn-outline">Консультация</a>
+        <a href="#contact" class="btn btn-outline">Связаться</a>
       </div>
     </nav>
   </div>
@@ -77,12 +82,13 @@
 <section class="hero">
   <div class="container">
     <h1>Защита ваших прав.<br>Чёткие решения.<br>Результат без лишних слов.</h1>
-    <p>Гражданско-правовой юрист. Досудебное урегулирование, представительство в судах, защита имущества и бизнеса.</p>
+    <p>Гражданско-правовой юрист. Досудебное урегулирование, представительство в судах, защита имущества и бизнеса. Бесплатный первичный анализ ситуации.</p>
     <div class="hero-cta">
-      <a href="#contact" class="btn btn-large">Получить консультацию</a>
-      <a href="tel:+79140576440" class="btn btn-outline btn-large">📞 +7 (914) 057-64-40</a>
+      <a href="tel:+79140576440" class="btn btn-large">📞 Позвонить сейчас</a>
+      <a href="mailto:law.vv.ya@mail.ru" class="btn btn-outline btn-large">✉️ Написать</a>
     </div>
     <div class="trust-badges">
+      <span>📜 Допуск к практике</span>
       <span>⚖️ 15 лет в гражданском праве</span>
       <span>📈 80% дел завершены досудебно</span>
     </div>
@@ -92,13 +98,32 @@
 <section id="services">
   <div class="container">
     <h2 class="section-title">Направления помощи</h2>
+    <p class="section-subtitle">Решаю задачи, где есть чёткие правовые механизмы, а не эмоции. Каждый кейс ведётся лично.</p>
     <div class="services-grid">
-      <div class="service-card"><h3>📄 Договорное право</h3><p>Проверка, составление, расторжение договоров. Снижение рисков до подписания.</p></div>
-      <div class="service-card"><h3>🏠 Имущественные споры</h3><p>Недвижимость, доли, сервитуты. Возврат имущества, признание прав.</p></div>
-      <div class="service-card"><h3>💰 Взыскание задолженностей</h3><p>Дебиторская задолженность, расписки. Досудебные претензии, исполнительное производство.</p></div>
-      <div class="service-card"><h3>👨‍👩‍👧 Семейное и наследственное</h3><p>Раздел имущества, споры о наследстве. Медиация и суд.</p></div>
-      <div class="service-card"><h3>💼 Трудовые споры</h3><p>Незаконное увольнение, взыскание зарплаты, восстановление на работе.</p></div>
-      <div class="service-card"><h3>🏢 Корпоративные конфликты</h3><p>Споры между учредителями, выход из бизнеса, сопровождение сделок.</p></div>
+      <div class="service-card">
+        <h3>📄 Договорное право</h3>
+        <p>Проверка, составление, расторжение договоров. Снижение рисков до подписания. Защита при нарушении контрагентом.</p>
+      </div>
+      <div class="service-card">
+        <h3>🏠 Имущественные споры</h3>
+        <p>Недвижимость, доли, сервитуты, границы участков. Возврат имущества, признание прав, снятие арестов.</p>
+      </div>
+      <div class="service-card">
+        <h3>💰 Взыскание задолженностей</h3>
+        <p>Дебиторская задолженность, расписки, неисполненные обязательства. Досудебные претензии, исполнительное производство.</p>
+      </div>
+      <div class="service-card">
+        <h3>👨‍👩‍👧 Семейное и наследственное</h3>
+        <p>Раздел имущества, споры о наследстве, признание завещаний недействительными. Медиация и суд.</p>
+      </div>
+      <div class="service-card">
+        <h3>💼 Трудовые споры</h3>
+        <p>Незаконное увольнение, взыскание заработной платы, восстановление на работе, споры с работодателем, компенсация морального вреда.</p>
+      </div>
+      <div class="service-card">
+        <h3>🏢 Корпоративные конфликты</h3>
+        <p>Споры между учредителями, выход из бизнеса, взыскание долей, сопровождение сделок с юридическими лицами.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -107,10 +132,26 @@
   <div class="container">
     <h2 class="section-title">Почему работают со мной</h2>
     <div class="why-grid">
-      <div class="why-item"><div>🔍</div><h3>Без навязывания услуг</h3><p>Сначала анализирую перспективу. Если выигрыш маловероятен — честно скажу.</p></div>
-      <div class="why-item"><div>📊</div><h3>Фиксированная стоимость</h3><p>Никаких скрытых платежей. Вы знаете итоговую цену до начала работы.</p></div>
-      <div class="why-item"><div>🤝</div><h3>Личное ведение</h3><p>Я не передаю дела ассистентам. Каждый шаг согласовываю.</p></div>
-      <div class="why-item"><div>⚡</div><h3>Фокус на досудебном</h3><p>Суд — это инструмент, а не цель. Стараюсь решить вопрос переговорами.</p></div>
+      <div class="why-item">
+        <div>🔍</div>
+        <h3>Без навязывания услуг</h3>
+        <p>Сначала анализирую перспективу. Если выигрыш маловероятен — честно скажу и предложу альтернативу.</p>
+      </div>
+      <div class="why-item">
+        <div>📊</div>
+        <h3>Фиксированная стоимость</h3>
+        <p>Никаких скрытых платежей. Вы знаете итоговую цену до начала работы. Возможна поэтапная оплата.</p>
+      </div>
+      <div class="why-item">
+        <div>🤝</div>
+        <h3>Личное ведение</h3>
+        <p>Я не передаю дела ассистентам. Каждый шаг согласовываю, отчёты предоставляю в срок.</p>
+      </div>
+      <div class="why-item">
+        <div>⚡</div>
+        <h3>Фокус на досудебном</h3>
+        <p>Суд — это инструмент, а не цель. Стараюсь решить вопрос переговорами, претензиями, медиацией.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -118,14 +159,16 @@
 <section id="about" class="about">
   <div class="container">
     <h2 class="section-title">О юристе</h2>
+    <p class="section-subtitle">Практика строится на точности, сроках и понимании бизнес- и жизненных контекстов.</p>
     <div class="about-content">
       <div class="about-text">
-        <p>Специализируюсь на гражданском праве с 2012 года. За это время <strong>провела</strong> более 300 консультаций, <strong>завершила</strong> 140+ дел различной сложности.</p>
-        <p>Квалификация: юрист в сфере гражданского права. Регулярно повышаю компетенции, отслеживаю изменения ГК РФ, ГПК РФ, ТК РФ.</p>
-        <a href="#contact" class="btn">Обсудить вашу ситуацию</a>
+        <p>Специализируюсь на гражданском праве с 2012 года. За это время <strong>провела</strong> более 300 консультаций, <strong>завершила</strong> 140+ дел различной сложности, от досудебных урегулирований до апелляционных инстанций.</p>
+        <p>Квалификация: юрист в сфере гражданского права. Регулярно повышаю компетенции, отслеживаю изменения ГК РФ, ГПК РФ, ТК РФ и судебную практику ВС РФ.</p>
+        <p>Работаю по договору оказания юридических услуг. Предоставляю закрывающие документы для бухгалтерии и налоговой.</p>
+        <a href="tel:+79140576440" class="btn">Позвонить для консультации</a>
       </div>
       <div class="about-photo">
-        <img src="photo.jpg" alt="Юрист Ярошкевич Вера Викторовна">
+        <img src="photo.jpg" alt="Юрист Ярошкевич Вера Викторовна" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'color: #64748b; text-align: center; padding: 20px;\'><div style=\'font-size: 4rem; margin-bottom: 10px;\'>👩‍⚖️</div><div>Ваше фото</div><div style=\'font-size: 0.8rem; margin-top: 10px;\'>Сохраните как<br><strong>photo.jpg</strong></div>';">
       </div>
     </div>
   </div>
@@ -134,30 +177,35 @@
 <section id="contact">
   <div class="container">
     <h2 class="section-title">Связаться со мной</h2>
-    <p class="section-subtitle">Опишите кратко вашу задачу. Я отвечу в течение рабочего дня.</p>
+    <p class="section-subtitle">Выберите удобный способ — я отвечу в течение рабочего дня</p>
     
     <div class="contact-grid">
       <div class="contact-box">
-        <h3>📋 Оставить заявку</h3>
-        <p style="margin-bottom: 24px; color: var(--text-light);">Заполните форму — я свяжусь с вами в ближайшее время</p>
-        
-        <!-- ВАША ЯНДЕКС ФОРМА - РАБОТАЕТ 100% -->
-        <a href="https://forms.yandex.ru/u/6a193c06d046887c22fabf9c" target="_blank" class="btn btn-large" style="width: 100%; margin-bottom: 16px; display: block;">
-          Заполнить форму заявки
-        </a>
-        
-        <p style="font-size: 0.85rem; color: var(--text-light);">
-          Или напишите напрямую:<br>
-          <a href="mailto:law.vv.ya@mail.ru">law.vv.ya@mail.ru</a>
+        <h3>📞 Позвонить</h3>
+        <p style="margin: 24px 0;">
+          <a href="tel:+79140576440">+7 (914) 057-64-40</a>
+        </p>
+        <p style="color: var(--text-light); font-size: 0.95rem;">
+          Пн–Пт: 09:00–19:00<br>
+          Сб: по записи
         </p>
       </div>
 
-      <div class="contact-info">
-        <h3 style="color: var(--navy); margin-bottom: 20px;">Контакты</h3>
-        <p>📞 <a href="tel:+79140576440">+7 (914) 057-64-40</a></p>
-        <p>✉️ <a href="mailto:law.vv.ya@mail.ru">law.vv.ya@mail.ru</a></p>
-        <p>🕒 Пн–Пт: 09:00–19:00</p>
+      <div class="contact-box">
+        <h3>✉️ Написать</h3>
+        <p style="margin: 24px 0;">
+          <a href="mailto:law.vv.ya@mail.ru">law.vv.ya@mail.ru</a>
+        </p>
+        <p style="color: var(--text-light); font-size: 0.95rem;">
+          Отвечаю в течение дня.<br>
+          Укажите тему письма для быстрого ответа.
+        </p>
       </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; padding: 24px; background: var(--surface); border-radius: var(--radius); box-shadow: 0 4px 20px rgba(15,23,42,0.08);">
+      <strong style="color: var(--navy); font-size: 1.1rem;">⚡ Срочный случай?</strong><br>
+      <span style="color: var(--text-light);">Позвоните — отвечу в течение часа.</span>
     </div>
   </div>
 </section>
@@ -165,6 +213,7 @@
 <footer>
   <div class="container">
     <p>© 2026 Ярошкевич Вера Викторовна. Все права защищены.</p>
+    <p style="margin-top: 8px; font-size: 0.85rem;">Сайт носит информационный характер и не является публичной офертой.</p>
   </div>
 </footer>
 
