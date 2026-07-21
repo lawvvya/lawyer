@@ -3,624 +3,1350 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Юрист Ярошкевич Вера Викторовна | Гражданско-правовые споры</title>
+    <title>Ярошкевич Вера Викторовна | Юрист по гражданским делам</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --navy: #0a1628;
+            --navy-light: #111d33;
+            --navy-lighter: #1a2744;
+            --gold: #c9a96e;
+            --gold-light: #d4b87a;
+            --gold-dim: rgba(201, 169, 110, 0.15);
+            --cream: #f5f0e8;
+            --cream-dark: #e8e0d4;
+            --text-primary: #1a1a2e;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--white);
+            overflow-x: hidden;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Top Banner Section */
-        .top-banner {
-            width: 100%;
-            height: 500px;
-            background: linear-gradient(rgba(30, 60, 114, 0.7), rgba(42, 82, 152, 0.7)), 
-                        url('contract-banner.jpg') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-        
-        .top-banner-content {
-            position: relative;
-            z-index: 2;
-            padding: 40px;
-        }
-        
-        .top-banner h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-            animation: fadeInUp 1s ease;
-        }
-        
-        .top-banner .tagline {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            opacity: 0.95;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-        
-        .top-banner .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-text h2 {
-            font-size: 2.8em;
-            margin-bottom: 20px;
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
             line-height: 1.2;
         }
-        
-        .hero-text .subtitle {
-            font-size: 1.3em;
-            margin-bottom: 40px;
-            opacity: 0.95;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .hero-badges {
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            background: var(--navy);
+            position: relative;
             display: flex;
-            gap: 20px;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .badge {
-            background: rgba(255,255,255,0.15);
-            padding: 12px 24px;
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 16px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn-primary {
-            background: #fff;
-            color: #2a5298;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-        
-        .btn-secondary:hover {
-            background: white;
-            color: #2a5298;
-        }
-        
-        /* Navigation */
-        nav {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            padding: 20px 0;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: #2a5298;
-        }
-        
-        /* Sections */
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            font-size: 2.5em;
-            text-align: center;
-            margin-bottom: 50px;
-            color: #1e3c72;
-        }
-        
-        /* Services */
-        .services {
-            background: #f8f9fa;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-        }
-        
-        .service-card h3 {
-            color: #1e3c72;
-            margin-bottom: 15px;
-            font-size: 1.4em;
-        }
-        
-        /* About */
-        .about-image-container {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .about-image-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
-            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
         }
-        
-        .about-image-wrapper img {
-            width: 100%;
-            height: auto;
-            display: block;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse, rgba(201, 169, 110, 0.08) 0%, transparent 70%);
+            pointer-events: none;
         }
-        
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, var(--white), transparent);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(201, 169, 110, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(201, 169, 110, 0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
             text-align: center;
-            font-size: 1.1em;
+            max-width: 900px;
+            padding: 0 30px;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 10px 28px;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .hero-badge::before,
+        .hero-badge::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            color: var(--white);
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: rgba(255,255,255,0.6);
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 60px;
+            letter-spacing: 1px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 18px 50px;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gold);
+            transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .hero-cta:hover {
+            color: var(--navy);
+            border-color: var(--gold);
+        }
+
+        .hero-cta:hover::before {
+            left: 0;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: bounce 2s infinite;
+        }
+
+        .hero-scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 25px 0;
+            transition: all 0.5s ease;
+        }
+
+        .nav.scrolled {
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 15px 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        .nav-logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.4s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== SECTIONS COMMON ===== */
+        .section {
+            padding: 140px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 90px;
+            padding: 0 20px;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--gold);
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-label::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+            margin: 15px auto 0;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
             line-height: 1.8;
         }
-        
-        /* Features */
-        .features {
-            background: #f8f9fa;
+
+        /* ===== SERVICES ===== */
+        .services {
+            background: var(--white);
         }
-        
-        .features-grid {
+
+        .services-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            gap: 0;
         }
-        
-        .feature {
-            text-align: center;
-            padding: 30px;
-        }
-        
-        .feature-icon {
-            font-size: 3em;
-            margin-bottom: 20px;
-        }
-        
-        /* Testimonials */
-        .testimonials-grid {
+
+        .service-item {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: 100px 1fr;
+            gap: 50px;
+            padding: 50px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.5s ease;
+            position: relative;
         }
-        
-        .testimonial {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 12px;
-            border-left: 4px solid #2a5298;
+
+        .service-item:first-child {
+            border-top: 1px solid rgba(0,0,0,0.06);
         }
-        
-        .testimonial-text {
-            font-style: italic;
+
+        .service-item:hover {
+            background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.02), transparent);
+        }
+
+        .service-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            opacity: 0.3;
+            font-weight: 300;
+            line-height: 1;
+            transition: opacity 0.3s;
+        }
+
+        .service-item:hover .service-num {
+            opacity: 0.6;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
             margin-bottom: 15px;
+            font-weight: 500;
         }
-        
-        .testimonial-author {
-            color: #1e3c72;
-            font-weight: 600;
+
+        .service-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            max-width: 600px;
         }
-        
-        /* FAQ */
-        .faq {
-            background: #f8f9fa;
+
+        .service-arrow {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: all 0.4s ease;
+            color: var(--gold);
+            font-size: 1.5rem;
         }
-        
-        .faq-item {
-            background: white;
-            margin-bottom: 20px;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+
+        .service-item:hover .service-arrow {
+            opacity: 1;
+            right: 20px;
         }
-        
-        .faq-item h3 {
-            color: #1e3c72;
+
+        /* ===== FEATURES ===== */
+        .features {
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(201, 169, 110, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .features .section-title,
+        .features .section-label,
+        .features .section-desc {
+            color: var(--white);
+        }
+
+        .features .section-label::after {
+            background: var(--gold);
+        }
+
+        .features .section-desc {
+            opacity: 0.7;
+        }
+
+        .features-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .feature-card {
+            background: var(--navy);
+            padding: 60px 50px;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        .feature-card:hover {
+            background: var(--navy-light);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.5s ease;
+        }
+
+        .feature-card:hover::before {
+            width: 100%;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+            color: var(--gold);
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .feature-card h3 {
+            color: var(--white);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .feature-card p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            background: var(--cream);
+            position: relative;
+        }
+
+        .about-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .about-left .section-label {
+            text-align: left;
+        }
+
+        .about-left .section-label::after {
+            margin: 15px 0 0;
+        }
+
+        .about-left .section-title {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .about-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 2;
+            margin-bottom: 25px;
+        }
+
+        .about-text strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .about-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--navy);
+            border-left: 2px solid var(--gold);
+            padding-left: 25px;
+            margin: 40px 0;
+            line-height: 1.6;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.4s ease;
+        }
+
+        .stat-item:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            color: var(--gold);
+            font-weight: 400;
+            line-height: 1;
             margin-bottom: 10px;
         }
-        
-        /* Contact */
-        .contact-grid {
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .about-right {
+            position: relative;
+        }
+
+        .about-image-frame {
+            position: relative;
+            padding: 30px;
+            border: 1px solid var(--gold);
+        }
+
+        .about-image-frame::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: 15px;
+            bottom: 15px;
+            border: 1px solid var(--gold);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .about-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image::before {
+            content: '⚖';
+            font-size: 8rem;
+            color: rgba(201, 169, 110, 0.15);
+        }
+
+        .about-image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            background: linear-gradient(to top, var(--navy), transparent);
+        }
+
+        .about-image-overlay p {
+            color: var(--white);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--cream);
+            padding: 50px 40px;
+            position: relative;
+            transition: all 0.5s ease;
+            border: 1px solid transparent;
+        }
+
+        .testimonial-card:hover {
+            background: var(--white);
+            border-color: rgba(201, 169, 110, 0.2);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.06);
+            transform: translateY(-10px);
+        }
+
+        .testimonial-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .testimonial-divider {
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-role {
+            color: var(--text-light);
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        /* ===== FAQ ===== */
+        .faq {
+            background: var(--navy);
+            position: relative;
+        }
+
+        .faq .section-title,
+        .faq .section-label,
+        .faq .section-desc {
+            color: var(--white);
+        }
+
+        .faq .section-label::after {
+            background: var(--gold);
+        }
+
+        .faq .section-desc {
+            opacity: 0.7;
+        }
+
+        .faq-list {
             max-width: 800px;
             margin: 0 auto;
+            padding: 0 30px;
         }
-        
+
+        .faq-item {
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 35px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            padding-left: 20px;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .faq-question h3 {
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .faq-item:hover .faq-question h3 {
+            color: var(--gold);
+        }
+
+        .faq-toggle {
+            width: 30px;
+            height: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover .faq-toggle {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .faq-answer {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-top: 20px;
+            max-width: 90%;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            background: var(--cream);
+            position: relative;
+        }
+
+        .contact-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
         .contact-card {
+            background: var(--white);
+            padding: 50px 40px;
             text-align: center;
-            padding: 30px;
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+            border-color: transparent;
+        }
+
+        .contact-card:hover::before {
+            transform: scaleX(1);
+        }
+
         .contact-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-        }
-        
-        .contact-card a {
-            color: #2a5298;
-            text-decoration: none;
-            font-size: 1.3em;
-            font-weight: 600;
-        }
-        
-        /* Footer */
-        footer {
-            background: #1e3c72;
-            color: white;
-            text-align: center;
-            padding: 40px 0;
-        }
-        
-        .floating-phone {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
-            color: white;
             width: 60px;
             height: 60px;
-            border-radius: 50%;
+            border: 1px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 1.3rem;
+            color: var(--gold);
+            transition: all 0.4s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        .contact-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+        }
+
+        .contact-card a {
+            color: var(--navy);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .contact-card a:hover {
+            color: var(--gold);
+        }
+
+        .contact-note {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .contact-urgent {
+            max-width: 600px;
+            margin: 80px auto 0;
+            text-align: center;
+            padding: 40px;
+            border: 1px solid var(--gold);
+            position: relative;
+        }
+
+        .contact-urgent::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            pointer-events: none;
+        }
+
+        .contact-urgent p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--navy);
+            font-style: italic;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--navy);
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .footer-line {
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto 30px;
+        }
+
+        .footer p {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-disclaimer {
+            max-width: 600px;
+            margin: 20px auto 0;
+            color: rgba(255,255,255,0.25);
+            font-size: 0.75rem;
+            line-height: 1.6;
+        }
+
+        /* ===== FLOATING BUTTON ===== */
+        .floating-btn {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: var(--navy);
+            border: 1px solid var(--gold);
+            color: var(--gold);
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            font-size: 2em;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            font-size: 1.3rem;
             z-index: 1000;
-            transition: transform 0.3s;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
-        
-        .floating-phone:hover {
+
+        .floating-btn:hover {
+            background: var(--gold);
+            color: var(--navy);
             transform: scale(1.1);
         }
-        
+
+        /* ===== ANIMATIONS ===== */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* ===== SCROLL REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .about-inner {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
-            .top-banner {
-                height: 400px;
+            .section {
+                padding: 80px 0;
             }
-            
-            .top-banner h1 {
-                font-size: 2em;
+
+            .nav-links {
+                display: none;
             }
-            
-            .top-banner .tagline {
-                font-size: 1.1em;
+
+            .service-item {
+                grid-template-columns: 60px 1fr;
+                gap: 25px;
+                padding: 35px 0;
             }
-            
-            .hero-text h2 {
-                font-size: 2em;
+
+            .service-num {
+                font-size: 2rem;
             }
-            
-            .hero-badges {
-                flex-direction: column;
-                align-items: center;
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta {
+                padding: 15px 35px;
+                font-size: 0.75rem;
             }
         }
     </style>
+<base target="_blank">
 </head>
 <body>
 
-    <!-- Top Banner Section -->
-    <section class="top-banner">
-        <div class="top-banner-content">
-            <h1>Юрист Ярошкевич Вера Викторовна</h1>
-            <p class="tagline">Защита ваших прав. Чёткие решения. Результат без лишних слов.</p>
-            <div class="cta-buttons">
-                <a href="tel:+79140576440" class="btn btn-primary">📞 Позвонить сейчас</a>
-                <a href="mailto:law.vv.ya@mail.ru" class="btn btn-secondary">✉️ Написать</a>
-            </div>
-        </div>
-    </section>
-
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#">Главная</a></li>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">Ярошкевич <span>В.В.</span></a>
+            <ul class="nav-links">
                 <li><a href="#services">Услуги</a></li>
+                <li><a href="#features">Преимущества</a></li>
                 <li><a href="#about">О юристе</a></li>
                 <li><a href="#reviews">Отзывы</a></li>
                 <li><a href="#faq">Вопросы</a></li>
-                <li><a href="#contact">Связаться</a></li>
+                <li><a href="#contact">Контакты</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Hero -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h2>Гражданско-правовой юрист</h2>
-                    <p class="subtitle">Досудебное урегулирование, представительство в судах, защита имущества и бизнеса. Бесплатный первичный анализ ситуации.</p>
-                    
-                    <div class="hero-badges">
-                        <div class="badge">📜 Допуск к практике</div>
-                        <div class="badge">⚖️ 15 лет в гражданском праве</div>
-                        <div class="badge">📈 80% дел завершены досудебно</div>
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+            <div class="hero-badge">Практикующий юрист</div>
+            <h1>Ярошкевич <span>Вера Викторовна</span></h1>
+            <p class="hero-subtitle">Защита ваших прав. Чёткие решения. Результат без лишних слов.</p>
+            <a href="tel:+79140576440" class="hero-cta">Позвонить сейчас</a>
+        </div>
+        <div class="hero-scroll">
+            <span>Листайте вниз</span>
+            <div class="hero-scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section services">
+        <div class="section-header reveal">
+            <div class="section-label">Практика</div>
+            <h2 class="section-title">Направления помощи</h2>
+            <p class="section-desc">Решаю задачи, где есть чёткие правовые механизмы. Каждый кейс веду лично — от анализа до результата.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-item reveal">
+                <div class="service-num">01</div>
+                <div class="service-content">
+                    <h3>Договорное право</h3>
+                    <p>Проверка, составление, расторжение договоров. Снижение рисков до подписания. Защита при нарушении контрагентом.</p>
+                </div>
+                <div class="service-arrow">→</div>
+            </div>
+            <div class="service-item reveal">
+                <div class="service-num">02</div>
+                <div class="service-content">
+                    <h3>Имущественные споры</h3>
+                    <p>Недвижимость, доли, сервитуты, границы участков. Возврат имущества, признание прав, снятие арестов.</p>
+                </div>
+                <div class="service-arrow">→</div>
+            </div>
+            <div class="service-item reveal">
+                <div class="service-num">03</div>
+                <div class="service-content">
+                    <h3>Взыскание задолженностей</h3>
+                    <p>Дебиторская задолженность, расписки, неисполненные обязательства. Досудебные претензии, исполнительное производство.</p>
+                </div>
+                <div class="service-arrow">→</div>
+            </div>
+            <div class="service-item reveal">
+                <div class="service-num">04</div>
+                <div class="service-content">
+                    <h3>Семейное и наследственное</h3>
+                    <p>Раздел имущества, споры о наследстве. Медиация и представительство в суде.</p>
+                </div>
+                <div class="service-arrow">→</div>
+            </div>
+            <div class="service-item reveal">
+                <div class="service-num">05</div>
+                <div class="service-content">
+                    <h3>Трудовые споры</h3>
+                    <p>Незаконное увольнение, взыскание заработной платы, восстановление на работе, споры с работодателем, компенсация морального вреда.</p>
+                </div>
+                <div class="service-arrow">→</div>
+            </div>
+            <div class="service-item reveal">
+                <div class="service-num">06</div>
+                <div class="service-content">
+                    <h3>Корпоративные конфликты</h3>
+                    <p>Споры между учредителями, выход из бизнеса, взыскание долей, сопровождение сделок с юридическими лицами.</p>
+                </div>
+                <div class="service-arrow">→</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="section features">
+        <div class="section-header reveal">
+            <div class="section-label">Почему я</div>
+            <h2 class="section-title">Преимущества работы</h2>
+            <p class="section-desc">Прозрачный подход и фокус на результате</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <div class="feature-icon">◈</div>
+                <h3>Без навязывания</h3>
+                <p>Сначала анализирую перспективу. Если выигрыш маловероятен — честно скажу.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">◈</div>
+                <h3>Фиксированная цена</h3>
+                <p>Никаких скрытых платежей. Итоговая стоимость известна до начала работы.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">◈</div>
+                <h3>Личное ведение</h3>
+                <p>Не передаю дела ассистентам. Каждый шаг согласовываю с клиентом.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">◈</div>
+                <h3>Фокус на досудебном</h3>
+                <p>Суд — инструмент, а не цель. Решаю переговорами, претензиями, медиацией.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section about">
+        <div class="about-inner">
+            <div class="about-left reveal">
+                <div class="section-label">О юристе</div>
+                <h2 class="section-title">Практика строится на точности, сроках и понимании контекста</h2>
+                <p class="about-text">Специализируюсь на гражданском праве с <strong>2012 года</strong>. За это время провела более <strong>300 консультаций</strong>, завершила <strong>140+ дел</strong> различной сложности — от досудебных урегулирований до апелляционных инстанций.</p>
+                <div class="about-quote">«Каждое дело — это не просто документы, а чья-то жизненная ситуация. Подхожу к этому с максимальной ответственностью.»</div>
+                <p class="about-text"><strong>Квалификация:</strong> юрист в сфере гражданского права. Регулярно повышаю компетенции, отслеживаю изменения ГК РФ, ГПК РФ, ТК РФ и судебную практику ВС РФ.</p>
+                <p class="about-text">Работаю по договору оказания юридических услуг. Предоставляю закрывающие документы для бухгалтерии и налоговой.</p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-num">15+</div>
+                        <div class="stat-label">лет в гражданском праве</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">140+</div>
+                        <div class="stat-label">завершённых дел</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">80%</div>
+                        <div class="stat-label">дел решены досудебно</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-right reveal">
+                <div class="about-image-frame">
+                    <div class="about-image">
+                        <div class="about-image-overlay">
+                            <p>«Право — это искусство добра и справедливости»</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">Направления помощи</h2>
-            <p style="text-align: center; margin-bottom: 40px; font-size: 1.1em;">Решаю задачи, где есть чёткие правовые механизмы, а не эмоции. Каждый кейс ведётся лично.</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>📄 Договорное право</h3>
-                    <p>Проверка, составление, расторжение договоров. Снижение рисков до подписания. Защита при нарушении контрагентом.</p>
-                </div>
-                
-                <div class="service-card">
-                    <h3>🏠 Имущественные споры</h3>
-                    <p>Недвижимость, доли, сервитуты, границы участков. Возврат имущества, признание прав, снятие арестов.</p>
-                </div>
-                
-                <div class="service-card">
-                    <h3>💰 Взыскание задолженностей</h3>
-                    <p>Дебиторская задолженность, расписки, неисполненные обязательства. Досудебные претензии, исполнительное производство.</p>
-                </div>
-                
-                <div class="service-card">
-                    <h3>👨‍👧 Семейное и наследственное</h3>
-                    <p>Раздел имущества, споры о наследстве. Медиация и суд.</p>
-                </div>
-                
-                <div class="service-card">
-                    <h3>💼 Трудовые споры</h3>
-                    <p>Незаконное увольнение, взыскание заработной платы, восстановление на работе, споры с работодателем, компенсация морального вреда.</p>
-                </div>
-                
-                <div class="service-card">
-                    <h3>🏢 Корпоративные конфликты</h3>
-                    <p>Споры между учредителями, выход из бизнеса, взыскание долей, сопровождение сделок с юридическими лицами.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">Почему работают со мной</h2>
-            
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">🔍</div>
-                    <h3>Без навязывания услуг</h3>
-                    <p>Сначала анализирую перспективу. Если выигрыш маловероятен — честно скажу и предложу альтернативу.</p>
-                </div>
-                
-                <div class="feature">
-                    <div class="feature-icon">📊</div>
-                    <h3>Фиксированная стоимость</h3>
-                    <p>Никаких скрытых платежей. Вы знаете итоговую цену до начала работы. Возможна поэтапная оплата.</p>
-                </div>
-                
-                <div class="feature">
-                    <div class="feature-icon">🤝</div>
-                    <h3>Личное ведение</h3>
-                    <p>Я не передаю дела ассистентам. Каждый шаг согласовываю, отчёты предоставляю в срок.</p>
-                </div>
-                
-                <div class="feature">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Фокус на досудебном</h3>
-                    <p>Суд — это инструмент, а не цель. Стараюсь решить вопрос переговорами, претензиями, медиацией.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">О юристе</h2>
-            
-            <div class="about-image-container">
-                <div class="about-image-wrapper">
-                    <img src="signing-documents.jpg" alt="Подписание юридических документов">
-                </div>
-                <p style="margin-top: 20px; color: #666; font-style: italic; font-size: 1em;">⚖️ Профессиональный подход к каждому делу</p>
-            </div>
-            
-            <div class="about-content">
-                <p style="font-size: 1.2em; margin-bottom: 20px; color: #1e3c72; font-weight: 600;">Практика строится на точности, сроках и понимании бизнес- и жизненных контекстов.</p>
-                <p>Специализируюсь на гражданском праве с 2012 года. За это время провела более 300 консультаций, завершила 140+ дел различной сложности, от досудебных урегулирований до апелляционных инстанций.</p>
-                <p><strong>Квалификация:</strong> юрист в сфере гражданского права. Регулярно повышаю компетенции, отслеживаю изменения ГК РФ, ГПК РФ, ТК РФ и судебную практику ВС РФ.</p>
-                <p>Работаю по договору оказания юридических услуг. Предоставляю закрывающие документы для бухгалтерии и налоговой.</p>
-                <div style="margin-top: 30px;">
-                    <a href="tel:+79140576440" class="btn btn-primary">Позвонить для консультации</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="reviews" class="testimonials">
-        <div class="container">
+    <!-- Testimonials -->
+    <section id="reviews" class="section testimonials">
+        <div class="section-header reveal">
+            <div class="section-label">Отзывы</div>
             <h2 class="section-title">Что говорят клиенты</h2>
-            <p style="text-align: center; margin-bottom: 40px;">Реальные ситуации. Конфиденциальность сохранена.</p>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <p class="testimonial-text">«Помог вернуть задолженность за поставку оборудования, которую контрагент игнорировал 8 месяцев. Всё решили досудебно, за 3 недели. Профессионально и без лишних обещаний.»</p>
-                    <p class="testimonial-author">— Алексей К., директор ООО</p>
-                </div>
-                
-                <div class="testimonial">
-                    <p class="testimonial-text">«Раздел имущества после развода казался невозможным. Юрист чётко выстроил стратегию, подготовил документы, на суде чувствовала себя уверенно. Результат превзошёл ожидания.»</p>
-                    <p class="testimonial-author">— Мария Д.</p>
-                </div>
-                
-                <div class="testimonial">
-                    <p class="testimonial-text">«Проверил договор аренды коммерческого помещения до подписания. Нашёл 4 скрытых пункта, которые могли стоить нам миллионов. Переговоры прошли успешно благодаря грамотной позиции.»</p>
-                    <p class="testimonial-author">— Игорь В., индивидуальный предприниматель</p>
-                </div>
+            <p class="section-desc">Реальные ситуации. Конфиденциальность сохранена.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">Помог вернуть задолженность за поставку оборудования, которую контрагент игнорировал 8 месяцев. Всё решили досудебно, за 3 недели. Профессионально и без лишних обещаний.</p>
+                <div class="testimonial-divider"></div>
+                <p class="testimonial-author">Алексей К.</p>
+                <p class="testimonial-role">Директор ООО</p>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">Раздел имущества после развода казался невозможным. Юрист чётко выстроил стратегию, подготовил документы, на суде чувствовала себя уверенно. Результат превзошёл ожидания.</p>
+                <div class="testimonial-divider"></div>
+                <p class="testimonial-author">Мария Д.</p>
+                <p class="testimonial-role">Частный клиент</p>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">Проверил договор аренды коммерческого помещения до подписания. Нашёл 4 скрытых пункта, которые могли стоить нам миллионов. Переговоры прошли успешно благодаря грамотной позиции.</p>
+                <div class="testimonial-divider"></div>
+                <p class="testimonial-author">Игорь В.</p>
+                <p class="testimonial-role">Индивидуальный предприниматель</p>
             </div>
         </div>
     </section>
 
-    <section id="faq" class="faq">
-        <div class="container">
+    <!-- FAQ -->
+    <section id="faq" class="section faq">
+        <div class="section-header reveal">
+            <div class="section-label">FAQ</div>
             <h2 class="section-title">Частые вопросы</h2>
-            
-            <div class="faq-item">
-                <h3>Сколько стоит консультация?</h3>
-                <p>Первичный анализ ситуации и оценка перспектив дела — бесплатно. Платная консультация назначается при необходимости глубокого разбора документов или выезда на объект.</p>
+            <p class="section-desc">Ответы на самые популярные вопросы клиентов</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item reveal">
+                <div class="faq-question">
+                    <h3>Сколько стоит консультация?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <p class="faq-answer">Первичный анализ ситуации и оценка перспектив дела — бесплатно. Платная консультация назначается при необходимости глубокого разбора документов или выезда на объект.</p>
             </div>
-            
-            <div class="faq-item">
-                <h3>Гарантируете ли вы выигрыш в суде?</h3>
-                <p>Согласно профессиональной этики юриста, гарантировать результат невозможно. Я гарантирую: полную прозрачность, честную оценку рисков, максимальную проработку позиции и соблюдение сроков.</p>
+            <div class="faq-item reveal">
+                <div class="faq-question">
+                    <h3>Гарантируете ли вы выигрыш в суде?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <p class="faq-answer">Согласно профессиональной этике юриста, гарантировать результат невозможно. Я гарантирую: полную прозрачность, честную оценку рисков, максимальную проработку позиции и соблюдение сроков.</p>
             </div>
-            
-            <div class="faq-item">
-                <h3>Как быстро вы приступите к работе?</h3>
-                <p>После согласования условий и подписания договора — в течение 1-2 рабочих дней. Срочные дела (аресты, обеспечительные меры) беру в приоритетном порядке.</p>
+            <div class="faq-item reveal">
+                <div class="faq-question">
+                    <h3>Как быстро вы приступите к работе?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <p class="faq-answer">После согласования условий и подписания договора — в течение 1-2 рабочих дней. Срочные дела (аресты, обеспечительные меры) беру в приоритетном порядке.</p>
             </div>
-            
-            <div class="faq-item">
-                <h3>Работаете ли вы с регионами?</h3>
-                <p>Да. Большинство вопросов решается дистанционно: документы в электронном виде, консультации по видеосвязи, участие в судах по доверенности или через представителей.</p>
+            <div class="faq-item reveal">
+                <div class="faq-question">
+                    <h3>Работаете ли вы с регионами?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <p class="faq-answer">Да. Большинство вопросов решается дистанционно: документы в электронном виде, консультации по видеосвязи, участие в судах по доверенности или через представителей.</p>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <div class="container">
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+        <div class="section-header reveal">
+            <div class="section-label">Контакты</div>
             <h2 class="section-title">Связаться со мной</h2>
-            <p style="text-align: center; margin-bottom: 40px;">Выберите удобный способ — я отвечу в течение рабочего дня</p>
-            
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <div class="contact-icon">📞</div>
-                    <h3>Позвонить</h3>
-                    <p><a href="tel:+79140576440">+7 (914) 057-64-40</a></p>
-                    <p style="margin-top: 10px; color: #666;">Пн–Пт: 09:00–19:00<br>Сб: по записи</p>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">✉️</div>
-                    <h3>Написать</h3>
-                    <p><a href="mailto:law.vv.ya@mail.ru">law.vv.ya@mail.ru</a></p>
-                    <p style="margin-top: 10px; color: #666;">Отвечаю в течение дня.<br>Укажите тему письма для быстрого ответа.</p>
-                </div>
+            <p class="section-desc">Выберите удобный способ — я отвечу в течение рабочего дня</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-card reveal">
+                <div class="contact-icon">☎</div>
+                <h3>Позвонить</h3>
+                <a href="tel:+79140576440">+7 (914) 057-64-40</a>
+                <p class="contact-note">Пн–Пт: 09:00–19:00<br>Сб: по записи</p>
             </div>
-            
-            <div style="text-align: center; margin-top: 40px; padding: 20px; background: #fff3cd; border-radius: 8px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                <p style="font-size: 1.1em;"><strong>⚡ Срочный случай?</strong> Позвоните — отвечу в течение часа.</p>
+            <div class="contact-card reveal">
+                <div class="contact-icon">✉</div>
+                <h3>Написать</h3>
+                <a href="mailto:law.vv.ya@mail.ru">law.vv.ya@mail.ru</a>
+                <p class="contact-note">Укажите тему письма<br>для быстрого ответа</p>
             </div>
+            <div class="contact-card reveal">
+                <div class="contact-icon">◈</div>
+                <h3>MAX</h3>
+                <a href="https://max.ru/u/f9LHodD0cOIDQe4VhoUKAIJZ7hogX3GE0rfM28EWuRvadqOsVEHLxgKf7v4" target="_blank">Написать в MAX</a>
+                <p class="contact-note">Быстрый ответ<br>в мессенджере</p>
+            </div>
+        </div>
+        <div class="contact-urgent reveal">
+            <p>⚡ Срочный случай? Позвоните — отвечу в течение часа.</p>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>© 2026 Ярошкевич Вера Викторовна. Все права защищены.</p>
-            <p style="margin-top: 10px; opacity: 0.8;">Сайт носит информационный характер и не является публичной офертой.</p>
-        </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-line"></div>
+        <p>© 2026 Ярошкевич Вера Викторовна. Все права защищены.</p>
+        <p class="footer-disclaimer">Сайт носит информационный характер и не является публичной офертой. В сложных ситуациях консультируйтесь с юристом.</p>
     </footer>
 
-    <a href="tel:+79140576440" class="floating-phone">📞</a>
+    <!-- Floating Button -->
+    <a href="tel:+79140576440" class="floating-btn" title="Позвонить">☎</a>
+
+    <script>
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
 
 </body>
 </html>
