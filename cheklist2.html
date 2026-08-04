@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чек-лист добросовестности покупателя | Вера Ярошкевич</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0e1a;
+            min-height: 100vh;
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            color: #e2e8f0;
+        }
+
+        .premium-card {
+            width: 100%;
+            max-width: 720px;
+            background: #111827;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 25px 80px -20px rgba(0,0,0,0.7);
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #1a1f35 0%, #0f1525 50%, #1a1030 100%);
+            padding: 56px 40px 48px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(165,180,252,0.9);
+            background: rgba(99,102,241,0.1);
+            border: 1px solid rgba(99,102,241,0.2);
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: #f8fafc;
+            line-height: 1.15;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: rgba(148,163,184,0.8);
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-divider {
+            width: 48px;
+            height: 2px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            margin: 28px 0;
+            border-radius: 2px;
+        }
+
+        .author-block {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 20px rgba(99,102,241,0.3);
+        }
+
+        .author-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+
+        .author-role {
+            font-size: 13px;
+            color: rgba(148,163,184,0.8);
+            margin-top: 2px;
+        }
+
+        .author-exp {
+            font-size: 12px;
+            color: rgba(148,163,184,0.5);
+            margin-top: 2px;
+        }
+
+        /* Progress */
+        .progress-bar {
+            background: rgba(255,255,255,0.05);
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 5px;
+        }
+
+        .progress-text {
+            font-size: 13px;
+            color: rgba(148,163,184,0.7);
+            font-weight: 500;
+        }
+
+        /* Alert */
+        .alert-banner {
+            display: flex;
+            gap: 16px;
+            padding: 20px 40px;
+            background: linear-gradient(90deg, rgba(234,179,8,0.08), rgba(234,179,8,0.03));
+            border-bottom: 1px solid rgba(234,179,8,0.1);
+        }
+
+        .alert-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .alert-text {
+            font-size: 13.5px;
+            line-height: 1.65;
+            color: rgba(234,179,8,0.85);
+        }
+
+        .alert-text strong {
+            color: #eab308;
+            font-weight: 600;
+        }
+
+        /* Sections */
+        .sections {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .section {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 28px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .section:hover {
+            border-color: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.03);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px -12px rgba(0,0,0,0.4);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .section-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1;
+            flex-shrink: 0;
+            width: 44px;
+            text-align: center;
+        }
+
+        .section-1 .section-number { color: #ef4444; }
+        .section-2 .section-number { color: #f59e0b; }
+        .section-3 .section-number { color: #34d399; }
+        .section-4 .section-number { color: #60a5fa; }
+        .section-5 .section-number { color: #8b5cf6; }
+        .section-6 .section-number { color: #ec4899; }
+
+        .section-title-group {
+            flex: 1;
+            padding-top: 4px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #f1f5f9;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-accent {
+            width: 32px;
+            height: 2px;
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+
+        .section-1 .section-accent { background: linear-gradient(90deg, #ef4444, transparent); }
+        .section-2 .section-accent { background: linear-gradient(90deg, #f59e0b, transparent); }
+        .section-3 .section-accent { background: linear-gradient(90deg, #34d399, transparent); }
+        .section-4 .section-accent { background: linear-gradient(90deg, #60a5fa, transparent); }
+        .section-5 .section-accent { background: linear-gradient(90deg, #8b5cf6, transparent); }
+        .section-6 .section-accent { background: linear-gradient(90deg, #ec4899, transparent); }
+
+        .section-desc {
+            font-size: 13px;
+            color: rgba(148,163,184,0.6);
+            margin-top: 6px;
+            font-weight: 400;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            background: rgba(255,255,255,0.05);
+            color: rgba(148,163,184,0.6);
+            border: 1px solid rgba(255,255,255,0.08);
+            margin-left: auto;
+        }
+
+        .section.completed .status-badge {
+            background: rgba(52,211,153,0.15);
+            color: #34d399;
+            border-color: rgba(52,211,153,0.3);
+        }
+
+        /* Checklist */
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            cursor: pointer;
+            padding: 10px 12px;
+            border-radius: 12px;
+            transition: background 0.2s;
+        }
+
+        .check-item:hover {
+            background: rgba(255,255,255,0.03);
+        }
+
+        .check-input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .check-box {
+            width: 22px;
+            height: 22px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .check-box svg {
+            width: 14px;
+            height: 14px;
+            color: white;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .check-input:checked + .check-box {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-color: transparent;
+            box-shadow: 0 2px 12px rgba(99,102,241,0.4);
+        }
+
+        .check-input:checked + .check-box svg {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .check-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(226,232,240,0.85);
+            transition: color 0.2s;
+            flex: 1;
+        }
+
+        .check-input:checked ~ .check-text {
+            color: rgba(226,232,240,0.45);
+            text-decoration: line-through;
+        }
+
+        .check-note {
+            display: block;
+            font-size: 12px;
+            color: rgba(148,163,184,0.5);
+            margin-top: 4px;
+            line-height: 1.5;
+        }
+
+        .item-note {
+            display: none;
+            margin-top: 8px;
+            padding: 8px 12px;
+            background: rgba(234,179,8,0.08);
+            border-left: 3px solid rgba(234,179,8,0.4);
+            border-radius: 4px;
+            font-size: 12px;
+            color: rgba(234,179,8,0.85);
+        }
+
+        .check-input:checked ~ .item-note {
+            display: block;
+        }
+
+        /* Tips */
+        .tip {
+            display: flex;
+            gap: 14px;
+            margin-top: 20px;
+            padding: 18px 20px;
+            border-radius: 14px;
+            border-left: 3px solid;
+        }
+
+        .tip-icon {
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .tip-text {
+            font-size: 13px;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .tip-red {
+            background: rgba(239,68,68,0.06);
+            border-color: rgba(239,68,68,0.4);
+            color: rgba(252,165,165,0.9);
+        }
+
+        .tip-amber {
+            background: rgba(251,191,36,0.06);
+            border-color: rgba(251,191,36,0.4);
+            color: rgba(253,224,71,0.9);
+        }
+
+        .tip-green {
+            background: rgba(52,211,153,0.06);
+            border-color: rgba(52,211,153,0.4);
+            color: rgba(110,231,183,0.9);
+        }
+
+        .tip-blue {
+            background: rgba(96,165,250,0.06);
+            border-color: rgba(96,165,250,0.4);
+            color: rgba(147,197,253,0.9);
+        }
+
+        .tip-purple {
+            background: rgba(139,92,246,0.06);
+            border-color: rgba(139,92,246,0.4);
+            color: rgba(196,181,253,0.9);
+        }
+
+        .tip-pink {
+            background: rgba(236,72,153,0.06);
+            border-color: rgba(236,72,153,0.4);
+            color: rgba(249,168,212,0.9);
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            background: linear-gradient(135deg, #0f1525 0%, #1a1030 100%);
+            padding: 48px 40px 36px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(99,102,241,0.4), transparent);
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #f8fafc;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        .footer-subtitle {
+            font-size: 14px;
+            color: rgba(148,163,184,0.7);
+            font-weight: 300;
+            margin-bottom: 32px;
+        }
+
+        .btn-reset {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            border: none;
+            padding: 14px 36px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-reset:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(239,68,68,0.3);
+        }
+
+        .last-save {
+            margin-top: 20px;
+            font-size: 12px;
+            color: rgba(148,163,184,0.4);
+        }
+
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 36px;
+        }
+
+        .contact-cell {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 20px 12px;
+            transition: all 0.3s;
+        }
+
+        .contact-cell:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(99,102,241,0.2);
+            transform: translateY(-2px);
+        }
+
+        .contact-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .contact-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(148,163,184,0.5);
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .contact-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-value:hover {
+            color: #a5b4fc;
+        }
+
+        .phone-link {
+            font-size: 16px;
+            color: #a5b4fc;
+            letter-spacing: 0.5px;
+        }
+
+        .copyright {
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .copyright strong {
+            font-size: 13px;
+            color: rgba(148,163,184,0.6);
+            font-weight: 500;
+        }
+
+        .copyright-note {
+            font-size: 11px;
+            color: rgba(148,163,184,0.35);
+            margin-top: 6px;
+            line-height: 1.5;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            body { padding: 12px; }
+            .hero { padding: 40px 24px 36px; }
+            .hero-title { font-size: 28px; }
+            .alert-banner { padding: 16px 24px; }
+            .sections { padding: 24px; gap: 20px; }
+            .section { padding: 20px; }
+            .section-header { gap: 12px; }
+            .section-number { font-size: 24px; width: 36px; }
+            .section-title { font-size: 17px; }
+            .footer { padding: 36px 24px 28px; }
+            .contacts-grid { grid-template-columns: 1fr; gap: 12px; }
+            .contact-cell { padding: 16px; }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                color: #1e293b;
+            }
+            .premium-card {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+            .hero {
+                background: #1e293b;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            .check-item:hover {
+                background: transparent;
+            }
+            .contact-cell:hover {
+                transform: none;
+            }
+            .btn-reset {
+                display: none;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="premium-card">
+        <!-- Hero -->
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">ЧЕК-ЛИСТ ДОБРОСОВЕСТНОСТИ ПОКУПАТЕЛЯ</div>
+                <h1 class="hero-title">Проверка перед покупкой квартиры</h1>
+                <p class="hero-subtitle">Комплексная проверка продавца и сделки</p>
+                <div class="hero-divider"></div>
+                <div class="author-block">
+                    <div class="author-avatar">ВЯ</div>
+                    <div class="author-info">
+                        <div class="author-name">Вера Викторовна Ярошкевич</div>
+                        <div class="author-role">Практикующий юрист по гражданским делам</div>
+                        <div class="author-exp">Опыт работы более 15 лет</div>
+                    </div>
+                </div>
+                <div class="hero-divider"></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText">Выполнено: 0 из 20 (0%)</div>
+            </div>
+        </div>
+
+        <!-- Alert -->
+        <div class="alert-banner">
+            <div class="alert-icon">⚠️</div>
+            <div class="alert-text">
+                <strong>Внимание!</strong> Непроверенный продавец — это риск потери денег и жилья. Проверяйте каждую сделку до подписания договора купли-продажи.
+            </div>
+        </div>
+
+        <!-- Sections -->
+        <div class="sections">
+            <!-- Block 1: Проверить документы продавца -->
+            <div class="section section-1" data-section="docs">
+                <div class="section-header">
+                    <div class="section-number">01</div>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Проверить документы продавца <span class="status-badge" id="badge-docs">0/4</span></h2>
+                        <div class="section-accent"></div>
+                        <div class="section-desc">Проверка личности и документов продавца</div>
+                    </div>
+                </div>
+                <div class="checklist">
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="docs">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Паспорт продавца
+                            <span class="check-note">Проверка действительности, совпадение ФИО с данными ЕГРН.</span>
+                        </span>
+                        <span class="item-note">✓ Паспорт проверен</span>
+                    </label>
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="docs">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Документ-основание права собственности
+                            <span class="check-note">Договор купли-продажи, дарения, приватизации или иной правоустанавливающий документ.</span>
+                        </span>
+                        <span class="item-note">✓ Основание проверено</span>
+                    </label>
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="docs">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Выписка из ЕГРН
+                            <span class="check-note">Актуальные сведения о правообладателе, обременениях, запретах.</span>
+                        </span>
+                        <span class="item-note">✓ Выписка получена</span>
+                    </label>
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="docs">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Наличие брака/развода
+                            <span class="check-note">Если квартира приобреталась в браке — требуется согласие супруга.</span>
+                        </span>
+                        <span class="item-note">✓ Семейное положение установлено</span>
+                    </label>
+                </div>
+                <div class="tip tip-red">
+                    <div class="tip-icon">💡</div>
+                    <div class="tip-text">Отсутствие проверки паспорта и документов-оснований — одна из главных причин признания сделки недействительной. Всегда сверяйте данные с оригиналами.</div>
+                </div>
+            </div>
+
+            <!-- Block 2: Выяснить режим собственности -->
+            <div class="section section-2" data-section="ownership">
+                <div class="section-header">
+                    <div class="section-number">02</div>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Выяснить режим собственности <span class="status-badge" id="badge-ownership">0/3</span></h2>
+                        <div class="section-accent"></div>
+                        <div class="section-desc">Определение правового режима имущества</div>
+                    </div>
+                </div>
+                <div class="checklist">
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="ownership">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Квартира в личной или совместной собственности?
+                            <span class="check-note">Определение границ распоряжения имуществом.</span>
+                        </span>
+                        <span class="item-note">✓ Режим установлен</span>
+                    </label>
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="ownership">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Есть ли второй собственник?
+                            <span class="check-note">Проверка долевой или совместной собственности.</span>
+                        </span>
+                        <span class="item-note">✓ Собственники выявлены</span>
+                    </label>
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="ownership">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Было ли нотариальное согласие второго супруга или сособственника?
+                            <span class="check-note">Без согласия сделка может быть оспорена в течение 3 лет.</span>
+                        </span>
+                        <span class="item-note">✓ Согласие получено / не требуется</span>
+                    </label>
+                </div>
+                <div class="tip tip-amber">
+                    <div class="tip-icon">💡</div>
+                    <div class="tip-text">Сделка с имуществом в совместной собственности без согласия супруга может быть оспорена в течение 3 лет. Получайте нотариальное согласие заранее.</div>
+                </div>
+            </div>
+
+            <!-- Block 3: Проверить наличие спора -->
+            <div class="section section-3" data-section="dispute">
+                <div class="section-header">
+                    <div class="section-number">03</div>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Проверить наличие спора <span class="status-badge" id="badge-dispute">0/3</span></h2>
+                        <div class="section-accent"></div>
+                        <div class="section-desc">Выявление судебных споров и ограничений</div>
+                    </div>
+                </div>
+                <div class="checklist">
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="dispute">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Есть ли сведения о разделе имущества
+                            <span class="check-note">Проверка брачного договора или судебного раздела.</span>
+                        </span>
+                        <span class="item-note">✓ Споры об имуществе отсутствуют</span>
+                    </label>
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="dispute">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Подан ли иск в суд о правах на квартиру
+                            <span class="check-note">Проверка картотеки арбитражных и судов общей юрисдикции.</span>
+                        </span>
+                        <span class="item-note">✓ Иски не выявлены</span>
+                    </label>
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="dispute">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Имеются ли судебные акты, обеспечительные меры, запреты
+                            <span class="check-note">Аресты, запреты регистрационных действий, обременения.</span>
+                        </span>
+                        <span class="item-note">✓ Ограничения отсутствуют</span>
+                    </label>
+                </div>
+                <div class="tip tip-green">
+                    <div class="tip-icon">💡</div>
+                    <div class="tip-text">Даже если на момент сделки споров не было, но впоследствии выявится иск — ваша добросовестность и сохранённые документы станут главной защитой.</div>
+                </div>
+            </div>
+
+            <!-- Block 4: Оценить признаки риска -->
+            <div class="section section-4" data-section="risk">
+                <div class="section-header">
+                    <div class="section-number">04</div>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Оценить признаки риска <span class="status-badge" id="badge-risk">0/4</span></h2>
+                        <div class="section-accent"></div>
+                        <div class="section-desc">Идентификация сомнительных обстоятельств</div>
+                    </div>
+                </div>
+                <div class="checklist">
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="risk">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Продавец действует один, хотя имущество спорное
+                            <span class="check-note">Самостоятельная продажа при наличии супруга/сособственника.</span>
+                        </span>
+                        <span class="item-note">✓ Риск оценён</span>
+                    </label>
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="risk">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Цена сделки заметно ниже рыночной
+                            <span class="check-note">Заниженная цена — признак мошенничества или обременений.</span>
+                        </span>
+                        <span class="item-note">✓ Цена соответствует рынку</span>
+                    </label>
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="risk">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Сделка срочная, без объяснимой причины
+                            <span class="check-note">Спешка без объективных причин — тревожный сигнал.</span>
+                        </span>
+                        <span class="item-note">✓ Срочность обоснована</span>
+                    </label>
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="risk">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Продавец уклоняется от предоставления документов
+                            <span class="check-note">Отказ показать паспорт, выписку, документы-основания.</span>
+                        </span>
+                        <span class="item-note">✓ Документы предоставлены</span>
+                    </label>
+                </div>
+                <div class="tip tip-blue">
+                    <div class="tip-icon">💡</div>
+                    <div class="tip-text">Заниженная цена и срочность — классические признаки мошенничества. Если сделка выглядит слишком выгодной, скорее всего, есть подвох.</div>
+                </div>
+            </div>
+
+            <!-- Block 5: Проверить регистрационные данные -->
+            <div class="section section-5" data-section="registry">
+                <div class="section-header">
+                    <div class="section-number">05</div>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Проверить регистрационные данные <span class="status-badge" id="badge-registry">0/3</span></h2>
+                        <div class="section-accent"></div>
+                        <div class="section-desc">Сверка данных с ЕГРН</div>
+                    </div>
+                </div>
+                <div class="checklist">
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="registry">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Совпадает ли продавец с собственником по ЕГРН
+                            <span class="check-note">Проверка личности, отсутствие подмены.</span>
+                        </span>
+                        <span class="item-note">✓ Личность подтверждена</span>
+                    </label>
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="registry">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Нет ли обременений, арестов, ипотеки, запретов
+                            <span class="check-note">Проверка в ЕГРН и запросах в Росреестр.</span>
+                        </span>
+                        <span class="item-note">✓ Обременения отсутствуют</span>
+                    </label>
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="registry">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Нет ли недавних переходов права, вызывающих сомнение
+                            <span class="check-note">Частая перепродажа, сомнительные сделки в цепочке.</span>
+                        </span>
+                        <span class="item-note">✓ История переходов чистая</span>
+                    </label>
+                </div>
+                <div class="tip tip-purple">
+                    <div class="tip-icon">💡</div>
+                    <div class="tip-text">Выписка из ЕГРН на дату сделки — ваше главное доказательство отсутствия обременений. Заказывайте её непосредственно перед подписанием договора.</div>
+                </div>
+            </div>
+
+            <!-- Block 6: Зафиксировать свою добросовестность -->
+            <div class="section section-6" data-section="goodfaith">
+                <div class="section-header">
+                    <div class="section-number">06</div>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Зафиксировать свою добросовестность <span class="status-badge" id="badge-goodfaith">0/3</span></h2>
+                        <div class="section-accent"></div>
+                        <div class="section-desc">Создание доказательной базы добросовестности</div>
+                    </div>
+                </div>
+                <div class="checklist">
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="goodfaith">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Сохранять переписку и запросы документов
+                            <span class="check-note">Переписка в мессенджерах, email, SMS — доказательства добросовестности.</span>
+                        </span>
+                        <span class="item-note">✓ Переписка сохранена</span>
+                    </label>
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="goodfaith">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Делать письменные запросы о согласии второго супруга/сособственника
+                            <span class="check-note">Нотариальные запросы, письменные ответы.</span>
+                        </span>
+                        <span class="item-note">✓ Запросы задокументированы</span>
+                    </label>
+                    <label class="check-item" onclick="event.preventDefault(); toggleItem(this);">
+                        <input type="checkbox" class="check-input" data-section="goodfaith">
+                        <span class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span class="check-text">
+                            Сохранять выписку из ЕГРН и результаты проверки перед сделкой
+                            <span class="check-note">Датированная выписка — ключевое доказательство в суде.</span>
+                        </span>
+                        <span class="item-note">✓ Доказательная база собрана</span>
+                    </label>
+                </div>
+                <div class="tip tip-pink">
+                    <div class="tip-icon">💡</div>
+                    <div class="tip-text">Добросовестность покупателя доказывается документами. Сохраняйте всё: от первого сообщения продавцу до финальной выписки из ЕГРН.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-content">
+                <h2 class="footer-title">Нужна помощь с проверкой сделки?</h2>
+                <p class="footer-subtitle">Я помогу вам безопасно купить квартиру и защитить ваши права</p>
+                <button class="btn-reset" onclick="resetChecklist()">🔄 Сбросить все отметки</button>
+                <p class="last-save">Последнее сохранение: <span id="lastSave">никогда</span></p>
+
+                <div class="contacts-grid">
+                    <div class="contact-cell">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-label">Телефон</div>
+                        <a href="tel:89140576440" class="contact-value phone-link">8-914-057-6440</a>
+                    </div>
+                    <div class="contact-cell">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-label">Сайт</div>
+                        <a href="https://lawvvya.github.io/lawyer/" target="_blank" class="contact-value">lawvvya.github.io</a>
+                    </div>
+                    <div class="contact-cell">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-label">Мессенджер MAX</div>
+                        <a href="https://max.ru/u/f9LHodD0cOIDQe4VhoUKAIJZ7hogX3GE0rfM28EWuRvadqOsVEHLxgKf7v4" target="_blank" class="contact-value">Напишите мне</a>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    <strong>© Вера Викторовна Ярошкевич, 2026</strong>
+                    <div class="copyright-note">Все права защищены. Чек-лист является объектом авторского права.<br>Данный чек-лист носит ознакомительный характер. В сложных ситуациях консультируйтесь с юристом.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const STORAGE_KEY = 'buyerGoodFaithChecklist_v1';
+        const STORAGE_DATE = 'buyerGoodFaithChecklistDate_v1';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProgress();
+            updateProgress();
+        });
+
+        function toggleItem(label) {
+            const checkbox = label.querySelector('.check-input');
+            checkbox.checked = !checkbox.checked;
+
+            saveProgress();
+            updateProgress();
+            updateSectionStatus(label.closest('.section'));
+        }
+
+        function updateSectionStatus(section) {
+            const sectionName = section.dataset.section;
+            const checkboxes = section.querySelectorAll('.check-input');
+            const checked = section.querySelectorAll('.check-input:checked').length;
+            const total = checkboxes.length;
+            const badge = document.getElementById('badge-' + sectionName);
+
+            if (badge) {
+                badge.textContent = checked + '/' + total;
+            }
+
+            if (checked === total && total > 0) {
+                section.classList.add('completed');
+            } else {
+                section.classList.remove('completed');
+            }
+        }
+
+        function updateProgress() {
+            const allItems = document.querySelectorAll('.check-input');
+            const checkedItems = document.querySelectorAll('.check-input:checked');
+            const total = allItems.length;
+            const completed = checkedItems.length;
+            const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
+
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('progressText').textContent = 
+                'Выполнено: ' + completed + ' из ' + total + ' (' + percentage + '%)';
+
+            document.querySelectorAll('.section').forEach(section => {
+                updateSectionStatus(section);
+            });
+        }
+
+        function saveProgress() {
+            const items = [];
+            document.querySelectorAll('.check-input').forEach((checkbox) => {
+                items.push(checkbox.checked);
+            });
+
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+            const now = new Date().toLocaleString('ru-RU');
+            localStorage.setItem(STORAGE_DATE, now);
+            document.getElementById('lastSave').textContent = now;
+        }
+
+        function loadProgress() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            const savedDate = localStorage.getItem(STORAGE_DATE);
+
+            if (saved) {
+                const items = JSON.parse(saved);
+                const checkboxes = document.querySelectorAll('.check-input');
+
+                checkboxes.forEach((checkbox, index) => {
+                    if (items[index]) {
+                        checkbox.checked = true;
+                    }
+                });
+            }
+
+            if (savedDate) {
+                document.getElementById('lastSave').textContent = savedDate;
+            }
+        }
+
+        function resetChecklist() {
+            if (confirm('Вы уверены, что хотите сбросить все отметки?')) {
+                document.querySelectorAll('.check-input').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                localStorage.removeItem(STORAGE_KEY);
+                localStorage.removeItem(STORAGE_DATE);
+                document.getElementById('lastSave').textContent = 'никогда';
+                updateProgress();
+            }
+        }
+
+        window.addEventListener('beforeunload', function() {
+            saveProgress();
+        });
+    </script>
+</body>
+</html>
