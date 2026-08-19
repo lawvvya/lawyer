@@ -1,3 +1,16 @@
+Вера Викторовна, я интегрировала прайс-лист в ваш существующий сайт. Я сохранила всю стилистику: шрифты (Cormorant Garamond и Inter), цветовую гамму (темно-синий, золото, кремовый) и анимации появления.
+
+Новая секция **«Стоимость услуг»** добавлена после блока «Направления помощи» и перед «Преимуществами». Это логичное место: клиент сначала видит, *что* вы делаете, затем *сколько* это стоит, и уже потом — *почему* стоит выбрать именно вас.
+
+### Что сделано:
+1.  **Дизайн:** Использованы те же карточки (`feature-card`), что и в блоке преимуществ, но адаптированные под цены.
+2.  **Структура:** Услуги разбиты на логические блоки (Базовые, Договорные, Судебные, Специализированные).
+3.  **Адаптивность:** На мобильных устройствах сетка перестраивается в одну колонку.
+4.  **Акценты:** Цены выделены золотым цветом и крупным шрифтом.
+
+Вот полный обновленный код вашего сайта с встроенным прайс-листом:
+
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -414,6 +427,93 @@
         .service-item:hover .service-arrow {
             opacity: 1;
             right: 20px;
+        }
+
+        /* ===== PRICING (NEW) ===== */
+        .pricing {
+            background: var(--cream);
+        }
+
+        .pricing-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .price-card {
+            background: var(--white);
+            padding: 40px;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border-color: var(--gold);
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: var(--gold);
+            transition: height 0.4s ease;
+        }
+
+        .price-card:hover::before {
+            height: 100%;
+        }
+
+        .price-category {
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .price-title {
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .price-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .price-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--navy);
+            font-weight: 700;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-note {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
         }
 
         /* ===== FEATURES ===== */
@@ -1072,7 +1172,7 @@
                 grid-template-columns: 1fr;
             }
 
-            .features-grid {
+            .features-grid, .pricing-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -1126,6 +1226,7 @@
             <a href="#" class="nav-logo">Ярошкевич <span>В.В.</span></a>
             <ul class="nav-links">
                 <li><a href="#services">Услуги</a></li>
+                <li><a href="#pricing">Стоимость</a></li>
                 <li><a href="#features">Преимущества</a></li>
                 <li><a href="#about">О юристе</a></li>
                 <li><a href="#reviews">Отзывы</a></li>
@@ -1206,6 +1307,109 @@
                 </div>
                 <div class="service-arrow">→</div>
             </div>
+        </div>
+    </section>
+
+    <!-- Pricing (NEW SECTION) -->
+    <section id="pricing" class="section pricing">
+        <div class="section-header reveal">
+            <div class="section-label">Инвестиции в защиту</div>
+            <h2 class="section-title">Стоимость услуг</h2>
+            <p class="section-desc">Прозрачное ценообразование. Фиксированная стоимость известных работ.</p>
+        </div>
+        <div class="pricing-grid">
+            <!-- Блок 1: Консультации -->
+            <div class="price-card reveal">
+                <span class="price-category">Базовые услуги</span>
+                <h3 class="price-title">Юридическая консультация</h3>
+                <p class="price-desc">Устный или письменный разбор ситуации. Анализ перспектив, оценка рисков, пошаговый план действий.</p>
+                <div class="price-value">
+                    <span>от 2 500 ₽</span>
+                    <span class="price-note">устная / письменная</span>
+                </div>
+            </div>
+
+            <!-- Блок 2: Трудовые споры -->
+            <div class="price-card reveal">
+                <span class="price-category">Трудовое право</span>
+                <h3 class="price-title">Трудовые споры</h3>
+                <p class="price-desc">Консультации по незаконному увольнению, взысканию зарплаты, восстановлению на работе и компенсациям.</p>
+                <div class="price-value">
+                    <span>от 2 500 ₽</span>
+                    <span class="price-note">консультация</span>
+                </div>
+            </div>
+
+            <!-- Блок 3: Договоры -->
+            <div class="price-card reveal">
+                <span class="price-category">Договорное право</span>
+                <h3 class="price-title">Составление договора</h3>
+                <p class="price-desc">Разработка индивидуальных договоров, соглашений. Проверка, расторжение. Снижение рисков до подписания.</p>
+                <div class="price-value">
+                    <span>от 3 500 ₽</span>
+                    <span class="price-note">за документ</span>
+                </div>
+            </div>
+
+             <!-- Блок 4: Проверка договоров -->
+             <div class="price-card reveal">
+                <span class="price-category">Due Diligence</span>
+                <h3 class="price-title">Проверка договоров</h3>
+                <p class="price-desc">Правовой аудит готовых проектов договоров перед подписанием. Выявление скрытых рисков и кабальных условий.</p>
+                <div class="price-value">
+                    <span>от 3 000 ₽</span>
+                    <span class="price-note">за документ</span>
+                </div>
+            </div>
+
+            <!-- Блок 5: Претензии -->
+            <div class="price-card reveal">
+                <span class="price-category">Досудебное урегулирование</span>
+                <h3 class="price-title">Претензионная работа</h3>
+                <p class="price-desc">Составление досудебных претензий, ответов на претензии. Урегулирование споров без суда.</p>
+                <div class="price-value">
+                    <span>от 5 000 ₽</span>
+                    <span class="price-note">за документ</span>
+                </div>
+            </div>
+
+            <!-- Блок 6: Иски -->
+            <div class="price-card reveal">
+                <span class="price-category">Судебная защита</span>
+                <h3 class="price-title">Иски и жалобы</h3>
+                <p class="price-desc">Составление исковых заявлений, апелляционных и кассационных жалоб. Расчет госпошлины и требований.</p>
+                <div class="price-value">
+                    <span>5 000 – 7 000 ₽</span>
+                    <span class="price-note">в зависимости от сложности</span>
+                </div>
+            </div>
+
+            <!-- Блок 7: Недвижимость -->
+            <div class="price-card reveal">
+                <span class="price-category">Имущество и Земля</span>
+                <h3 class="price-title">Недвижимость и споры</h3>
+                <p class="price-desc">Недвижимость, доли, сервитуты, границы участков. Возврат имущества, признание прав, снятие арестов.</p>
+                <div class="price-value">
+                    <span>от 5 000 ₽</span>
+                    <span class="price-note">сопровождение</span>
+                </div>
+            </div>
+
+            <!-- Блок 8: Семья и Наследство -->
+            <div class="price-card reveal">
+                <span class="price-category">Семья и Наследство</span>
+                <h3 class="price-title">Семейные дела</h3>
+                <p class="price-desc">Раздел имущества, споры о наследстве. Медиация и подготовка к судебному представительству.</p>
+                <div class="price-value">
+                    <span>от 5 000 ₽</span>
+                    <span class="price-note">сопровождение</span>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px; max-width: 800px; margin-left: auto; margin-right: auto; padding: 0 20px;">
+            <p style="color: var(--text-secondary); font-size: 0.95rem; font-style: italic;">
+                ⚠️ Итоговая стоимость зависит от сложности дела, объема документов и срочности. Точная цена фиксируется в договоре оказания юридических услуг после первичного анализа ситуации.
+            </p>
         </div>
     </section>
 
