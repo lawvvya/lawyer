@@ -416,9 +416,16 @@
             right: 20px;
         }
 
-        /* ===== PRICING (NEW) ===== */
+        /* ===== PRICING (CARD STYLE - NO DROPDOWNS) ===== */
         .pricing {
-            background: var(--cream);
+            background: var(--navy);
+            position: relative;
+        }
+
+        .pricing .section-title,
+        .pricing .section-label,
+        .pricing .section-desc {
+            color: var(--white);
         }
 
         .pricing-grid {
@@ -426,81 +433,113 @@
             margin: 0 auto;
             padding: 0 30px;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
 
         .price-card {
-            background: var(--white);
+            background: var(--navy-light);
+            border: 1px solid rgba(255,255,255,0.08);
             padding: 40px;
-            border: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.4s ease;
             position: relative;
-            overflow: hidden;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .price-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
             border-color: var(--gold);
+            transform: translateY(-5px);
+            background: var(--navy-lighter);
         }
 
-        .price-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 3px;
-            height: 0;
-            background: var(--gold);
-            transition: height 0.4s ease;
-        }
-
-        .price-card:hover::before {
-            height: 100%;
-        }
-
-        .price-category {
-            font-size: 0.8rem;
+        .price-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
             color: var(--gold);
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            display: block;
+            opacity: 0.3;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .price-card:hover .price-num {
+            opacity: 1;
         }
 
         .price-title {
             font-size: 1.4rem;
-            color: var(--text-primary);
+            color: var(--white);
             margin-bottom: 15px;
             font-weight: 600;
+            min-height: 60px;
         }
 
-        .price-desc {
-            color: var(--text-secondary);
+        .price-list {
+            list-style: none;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .price-list li {
+            color: rgba(255,255,255,0.7);
             font-size: 0.95rem;
-            margin-bottom: 25px;
-            line-height: 1.6;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.5;
         }
 
-        .price-value {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            color: var(--navy);
-            font-weight: 700;
-            border-top: 1px solid rgba(0,0,0,0.1);
-            padding-top: 15px;
+        .price-list li::before {
+            content: '•';
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .price-footer {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .price-note {
+        .price-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .price-btn {
             font-size: 0.8rem;
-            color: var(--text-light);
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
+            color: var(--white);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 2px;
+            transition: all 0.3s;
+        }
+
+        .price-btn:hover {
+            color: var(--gold);
+        }
+
+        .pricing-note {
+            text-align: center;
+            max-width: 700px;
+            margin: 60px auto 0;
+            padding: 0 20px;
+        }
+
+        .pricing-note p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
         }
 
         /* ===== FEATURES ===== */
@@ -508,6 +547,7 @@
             background: var(--navy);
             position: relative;
             overflow: hidden;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
         .features::before {
@@ -1159,7 +1199,7 @@
                 grid-template-columns: 1fr;
             }
 
-            .features-grid, .pricing-grid {
+            .features-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -1297,106 +1337,159 @@
         </div>
     </section>
 
-    <!-- Pricing (NEW SECTION) -->
+    <!-- Pricing (Clean Card Style) -->
     <section id="pricing" class="section pricing">
         <div class="section-header reveal">
             <div class="section-label">Инвестиции в защиту</div>
             <h2 class="section-title">Стоимость услуг</h2>
-            <p class="section-desc">Прозрачное ценообразование. Фиксированная стоимость известных работ.</p>
+            <p class="section-desc">Прозрачное ценообразование. Фиксированная стоимость за результат.</p>
         </div>
+        
         <div class="pricing-grid">
-            <!-- Блок 1: Консультации -->
+            <!-- Card 1 -->
             <div class="price-card reveal">
-                <span class="price-category">Базовые услуги</span>
-                <h3 class="price-title">Юридическая консультация</h3>
-                <p class="price-desc">Устный или письменный разбор ситуации. Анализ перспектив, оценка рисков, пошаговый план действий.</p>
-                <div class="price-value">
-                    <span>от 2 500 ₽</span>
-                    <span class="price-note">устная / письменная</span>
+                <div class="price-num">01</div>
+                <h3 class="price-title">Сопровождение сделок с недвижимостью</h3>
+                <ul class="price-list">
+                    <li>Комплексная проверка объекта</li>
+                    <li>Подготовка договоров</li>
+                    <li>Сопровождение расчетов</li>
+                    <li>Регистрация права собственности</li>
+                </ul>
+                <div class="price-footer">
+                    <span class="price-value">от 10 000 руб.</span>
+                    <a href="#contact" class="price-btn">Оставить заявку</a>
                 </div>
             </div>
 
-            <!-- Блок 2: Трудовые споры -->
+            <!-- Card 2 -->
             <div class="price-card reveal">
-                <span class="price-category">Трудовое право</span>
+                <div class="price-num">02</div>
+                <h3 class="price-title">Защита прав физических лиц</h3>
+                <ul class="price-list">
+                    <li>Взыскание задолженности</li>
+                    <li>Защита прав потребителей</li>
+                    <li>Защита чести и достоинства</li>
+                </ul>
+                <div class="price-footer">
+                    <span class="price-value">от 10 000 руб.</span>
+                    <a href="#contact" class="price-btn">Оставить заявку</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="price-card reveal">
+                <div class="price-num">03</div>
+                <h3 class="price-title">Составление документов и консультации</h3>
+                <ul class="price-list">
+                    <li>Исковые заявления</li>
+                    <li>Апелляционные и кассационные жалобы</li>
+                    <li>Ходатайства в суд</li>
+                    <li>Проверка чистоты сделок</li>
+                </ul>
+                <div class="price-footer">
+                    <span class="price-value">от 10 000 руб.</span>
+                    <a href="#contact" class="price-btn">Оставить заявку</a>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="price-card reveal">
+                <div class="price-num">04</div>
+                <h3 class="price-title">Сопровождение бизнеса</h3>
+                <ul class="price-list">
+                    <li>Комплексное юридическое обслуживание</li>
+                    <li>Правовая экспертиза договоров</li>
+                    <li>Сопровождение сделок с бизнесом</li>
+                </ul>
+                <div class="price-footer">
+                    <span class="price-value">от 20 000 руб.</span>
+                    <a href="#contact" class="price-btn">Оставить заявку</a>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="price-card reveal">
+                <div class="price-num">05</div>
+                <h3 class="price-title">Арбитражные споры</h3>
+                <ul class="price-list">
+                    <li>Ведение дел во всех инстанциях</li>
+                    <li>Споры по договорам</li>
+                    <li>Корпоративные споры</li>
+                </ul>
+                <div class="price-footer">
+                    <span class="price-value">от 30 000 руб.</span>
+                    <a href="#contact" class="price-btn">Оставить заявку</a>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="price-card reveal">
+                <div class="price-num">06</div>
+                <h3 class="price-title">Семейные споры</h3>
+                <ul class="price-list">
+                    <li>Расторжение брака</li>
+                    <li>Раздел имущества</li>
+                    <li>Взыскание алиментов</li>
+                    <li>Установление отцовства</li>
+                </ul>
+                <div class="price-footer">
+                    <span class="price-value">от 30 000 руб.</span>
+                    <a href="#contact" class="price-btn">Оставить заявку</a>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="price-card reveal">
+                <div class="price-num">07</div>
+                <h3 class="price-title">Споры по земле и недвижимости</h3>
+                <ul class="price-list">
+                    <li>Споры о праве собственности</li>
+                    <li>Определение порядка пользования имуществом</li>
+                    <li>Восстановление границ участка</li>
+                </ul>
+                <div class="price-footer">
+                    <span class="price-value">от 30 000 руб.</span>
+                    <a href="#contact" class="price-btn">Оставить заявку</a>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="price-card reveal">
+                <div class="price-num">08</div>
+                <h3 class="price-title">Наследственные споры</h3>
+                <ul class="price-list">
+                    <li>Признание права собственности</li>
+                    <li>Оспаривание прав наследников</li>
+                    <li>Восстановление срока принятия наследства</li>
+                </ul>
+                <div class="price-footer">
+                    <span class="price-value">от 30 000 руб.</span>
+                    <a href="#contact" class="price-btn">Оставить заявку</a>
+                </div>
+            </div>
+
+            <!-- Card 9: Labor Disputes -->
+            <div class="price-card reveal">
+                <div class="price-num">09</div>
                 <h3 class="price-title">Трудовые споры</h3>
-                <p class="price-desc">Консультации по незаконному увольнению, взысканию зарплаты, восстановлению на работе и компенсациям.</p>
-                <div class="price-value">
-                    <span>от 2 500 ₽</span>
-                    <span class="price-note">консультация</span>
+                <ul class="price-list">
+                    <li>Консультация и анализ ситуации</li>
+                    <li>Досудебное урегулирование</li>
+                    <li>Помощь в сборе доказательств</li>
+                    <li>Представительство в суде</li>
+                </ul>
+                <div class="price-footer">
+                    <span class="price-value">от 10 000 руб.</span>
+                    <a href="#contact" class="price-btn">Оставить заявку</a>
                 </div>
             </div>
 
-            <!-- Блок 3: Договоры -->
-            <div class="price-card reveal">
-                <span class="price-category">Договорное право</span>
-                <h3 class="price-title">Составление договора</h3>
-                <p class="price-desc">Разработка индивидуальных договоров, соглашений. Проверка, расторжение. Снижение рисков до подписания.</p>
-                <div class="price-value">
-                    <span>от 3 500 ₽</span>
-                    <span class="price-note">за документ</span>
-                </div>
-            </div>
-
-             <!-- Блок 4: Проверка договоров -->
-             <div class="price-card reveal">
-                <span class="price-category">Due Diligence</span>
-                <h3 class="price-title">Проверка договоров</h3>
-                <p class="price-desc">Правовой аудит готовых проектов договоров перед подписанием. Выявление скрытых рисков и кабальных условий.</p>
-                <div class="price-value">
-                    <span>от 3 000 ₽</span>
-                    <span class="price-note">за документ</span>
-                </div>
-            </div>
-
-            <!-- Блок 5: Претензии -->
-            <div class="price-card reveal">
-                <span class="price-category">Досудебное урегулирование</span>
-                <h3 class="price-title">Претензионная работа</h3>
-                <p class="price-desc">Составление досудебных претензий, ответов на претензии. Урегулирование споров без суда.</p>
-                <div class="price-value">
-                    <span>от 5 000 ₽</span>
-                    <span class="price-note">за документ</span>
-                </div>
-            </div>
-
-            <!-- Блок 6: Иски -->
-            <div class="price-card reveal">
-                <span class="price-category">Судебная защита</span>
-                <h3 class="price-title">Иски и жалобы</h3>
-                <p class="price-desc">Составление исковых заявлений, апелляционных и кассационных жалоб. Расчет госпошлины и требований.</p>
-                <div class="price-value">
-                    <span>5 000 – 7 000 ₽</span>
-                    <span class="price-note">в зависимости от сложности</span>
-                </div>
-            </div>
-
-            <!-- Блок 7: Недвижимость -->
-            <div class="price-card reveal">
-                <span class="price-category">Имущество и Земля</span>
-                <h3 class="price-title">Недвижимость и споры</h3>
-                <p class="price-desc">Недвижимость, доли, сервитуты, границы участков. Возврат имущества, признание прав, снятие арестов.</p>
-                <div class="price-value">
-                    <span>от 5 000 ₽</span>
-                    <span class="price-note">сопровождение</span>
-                </div>
-            </div>
-
-            <!-- Блок 8: Семья и Наследство -->
-            <div class="price-card reveal">
-                <span class="price-category">Семья и Наследство</span>
-                <h3 class="price-title">Семейные дела</h3>
-                <p class="price-desc">Раздел имущества, споры о наследстве. Медиация и подготовка к судебному представительству.</p>
-                <div class="price-value">
-                    <span>от 5 000 ₽</span>
-                    <span class="price-note">сопровождение</span>
-                </div>
-            </div>
         </div>
-        <div style="text-align: center; margin-top: 50px; max-width: 800px; margin-left: auto; margin-right: auto; padding: 0 20px;">
-            <p style="color: var(--text-secondary); font-size: 0.95rem; font-style: italic;">
-                ⚠️ Итоговая стоимость зависит от сложности дела, объема документов и срочности. Точная цена фиксируется в договоре оказания юридических услуг после первичного анализа ситуации.
-            </p>
+
+        <div class="pricing-note reveal">
+            <p>⚠️ Итоговая стоимость зависит от сложности дела, объема документов и региона. Точная цена фиксируется в договоре после первичного анализа ситуации.</p>
+            <a href="#contact" class="hero-cta" style="margin-top: 30px; padding: 15px 40px;">Обсудить задачу</a>
         </div>
     </section>
 
@@ -1478,24 +1571,24 @@
         <div class="testimonials-grid">
             <div class="testimonial-card reveal">
                 <div class="testimonial-quote">"</div>
-                <p class="testimonial-text">Помог вернуть задолженность за поставку оборудования, которую контрагент игнорировал 8 месяцев. Всё решили досудебно, за 3 недели. Профессионально и без лишних обещаний.</p>
+                <p class="testimonial-text">Проверила договор аренды коммерческого помещения до подписания. Нашла 4 скрытых пункта, которые могли стоить нам миллионов. Переговоры прошли успешно благодаря грамотной позиции.</p>
                 <div class="testimonial-divider"></div>
-                <p class="testimonial-author">Алексей К.</p>
-                <p class="testimonial-role">Директор ООО</p>
+                <p class="testimonial-author">Игорь В.</p>
+                <p class="testimonial-role">Индивидуальный предприниматель</p>
             </div>
             <div class="testimonial-card reveal">
                 <div class="testimonial-quote">"</div>
-                <p class="testimonial-text">Раздел имущества после развода казался невозможным. Юрист чётко выстроил стратегию, подготовил документы, на суде чувствовала себя уверенно. Результат превзошёл ожидания.</p>
+                <p class="testimonial-text">Раздел имущества после развода казался невозможным. Юрист четко выстроила стратегию, подготовила документы, на суде чувствовала себя уверенно. Результат превзошёл ожидания.</p>
                 <div class="testimonial-divider"></div>
                 <p class="testimonial-author">Мария Д.</p>
                 <p class="testimonial-role">Частный клиент</p>
             </div>
             <div class="testimonial-card reveal">
                 <div class="testimonial-quote">"</div>
-                <p class="testimonial-text">Проверил договор аренды коммерческого помещения до подписания. Нашёл 4 скрытых пункта, которые могли стоить нам миллионов. Переговоры прошли успешно благодаря грамотной позиции.</p>
+                <p class="testimonial-text">Помогла вернуть задолженность за поставку оборудования, которую контрагент игнорировал 8 месяцев. Всё решили досудебно, за 3 недели. Профессионально и без лишних обещаний.</p>
                 <div class="testimonial-divider"></div>
-                <p class="testimonial-author">Игорь В.</p>
-                <p class="testimonial-role">Индивидуальный предприниматель</p>
+                <p class="testimonial-author">Алексей К.</p>
+                <p class="testimonial-role">Директор ООО</p>
             </div>
         </div>
     </section>
